@@ -1,14 +1,12 @@
 import "./App.css";
 import Header from "../Header/Header";
+import WeatherCard from "../WeatherCard/WeatherCard";
 function App() {
   return (
     <div>
       <Header />
       <main className="main">
-        <section className="weather" id="weather">
-          <div className="weather_info">75F</div>
-            <img src="/images/day/sunny.svg" className="weather_image"/>
-        </section>
+       <WeatherCard day={false} type="moon"/>
         <section id="card-section">Card Section</section>
       </main>
     </div>
