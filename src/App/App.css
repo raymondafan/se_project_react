@@ -1,3 +1,17 @@
-.header{
-  background-color: lightseagreen;
+.weather{
+  position: relative;
+}
+.weather_info{
+  position: absolute;
+  top: 12px;
+  left: 16x;
+  color: white;
+  font-size: 36px;
+}
+.weather_image{
+  width:100%;
+  
+}
+.main{
+  padding: 0 20px;
 }

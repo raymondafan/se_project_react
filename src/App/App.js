@@ -1,17 +1,16 @@
 import "./App.css";
-
+import Header from "../Header/Header";
 function App() {
   return (
     <div>
-      <header className="Header">
-        <div>Logo</div>
-        <div>Date</div>
-        <div>
-          <button type="text">Add New Clothes</button>
-        </div>
-        <div>Name</div>
-        <div>Avatar Logo</div>
-      </header>
+      <Header />
+      <main className="main">
+        <section className="weather" id="weather">
+          <div className="weather_info">75F</div>
+            <img src="/images/day/sunny.svg" className="weather_image"/>
+        </section>
+        <section id="card-section">Card Section</section>
+      </main>
     </div>
   );
 }
