@@ -3,8 +3,9 @@
 }
 .weather_info{
   position: absolute;
+
   top: 12px;
-  left: 16x;
+  left: 16px;
   color: white;
   font-size: 36px;
 }
