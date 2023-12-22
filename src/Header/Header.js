@@ -1,6 +1,6 @@
 import "./Header.css";
-
-const Header = () => {
+//in header we destructure onCreateModal
+const Header = ({onCreateModal}) => {
   console.log("Header");
   return (
     <header className="header">
@@ -12,7 +12,7 @@ const Header = () => {
       </div>
       <div className="header__avatar-logo">
         <div>
-          <button type="text">Add New Clothes</button>
+          <button type="text" onClick={onCreateModal}>Add New Clothes</button>
         </div>
         <div>Name</div>
         <div>
