@@ -3,10 +3,10 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
+import {  useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
 function App() {
-  const weatherTemp = "2°F";
+  const weatherTemp = "200°F";
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
   const [selectedCard, setSelectedCard] = useState({});
   //each card from defaultClothingItems is an object, empty object is how we define our useState()
