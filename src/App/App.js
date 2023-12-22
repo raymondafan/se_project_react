@@ -13,6 +13,7 @@ function App() {
   const handleCloseModal = () => {
     setActiveModal(""); //empty string bc we wanna go back to initial state (useState("")) so nothing appears after clicked
   };
+  
   return (
     <div>
       <Header onCreateModal={handleCreateModal} />
@@ -45,6 +46,13 @@ function App() {
           </div>
         </ModalWithForm>
       )}
+      <div className={`modal`}>
+      <div className="modal__content">
+        <img/>
+        <div>Text for item Name</div>
+        <div>Weather type</div>
+        </div>
+      </div>
     </div>
   );
 }
