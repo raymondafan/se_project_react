@@ -4,20 +4,29 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
+import ItemModal from "../ItemModal/ItemModal";
 function App() {
   const weatherTemp = "2°F";
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
+  const [selectedCard, setSelectedCard] = useState({});
+  //each card from defaultClothingItems is an object, empty object is how we define our useState()
+  //empty object prevents issues like code breaking bc we traverse thru object to find indvdl data values(name, weather, link) so we wanna make sure JS doesnt have any issues by having empty object for defaultClothingItems
   const handleCreateModal = () => {
+
     setActiveModal("create"); //opens the modal
   };
   const handleCloseModal = () => {
     setActiveModal(""); //empty string bc we wanna go back to initial state (useState("")) so nothing appears after clicked
   };
-  
+  const handleSelectedCard = (card) => {
+    setActiveModal("preview");
+    setSelectedCard(card);
+  };
+  console.log(selectedCard);
   return (
     <div>
       <Header onCreateModal={handleCreateModal} />
-      <Main weatherTemp={weatherTemp} />
+      <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard} />
       <Footer />
       {activeModal === "create" && (
         <ModalWithForm onClose={handleCloseModal} title="New Garment">
@@ -46,13 +55,7 @@ function App() {
           </div>
         </ModalWithForm>
       )}
-      <div className={`modal`}>
-      <div className="modal__content">
-        <img/>
-        <div>Text for item Name</div>
-        <div>Weather type</div>
-        </div>
-      </div>
+      {activeModal === "preview" && <ItemModal selectedCard={selectedCard} onClose={handleCloseModal}/>}
     </div>
   );
 }
