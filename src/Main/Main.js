@@ -17,14 +17,20 @@ function Main({ weatherTemp, onSelectCard }) {
   },[weatherTemp]); 
   //if weatherTemp were to change when you didnt refresh, it will update all the data and return the new weatherType
 console.log(weatherType);
+//we want to filter the card prior to the mapping of the card into UI 
+const filteredCards = defaultClothingItems.filter((item)=>{
+  console.log(item);
+  return item.weather.toLowerCase()===weatherType
+}) //compares the item inserted converts anything to lowercases and compares to weathertype which in default is lowercase
+console.log(filteredCards);
 
   return (
     <main className="main">
       <WeatherCard day={false} type="cloud" weatherTemp={weatherTemp} />
       <section className="card_section" id="card-section">
-        Today is {weatherTemp} / You may want to wear:
+        Today is {weatherTemp}°F / You may want to wear:
         <div className="card_items">
-          {defaultClothingItems.map((item) => {
+          {filteredCards.map((item) => {
             console.log(item);
             return <ItemCard item={item} onSelectCard={onSelectCard} />;
           })}
