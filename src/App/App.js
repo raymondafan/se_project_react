@@ -3,8 +3,9 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import {  useState } from "react";
+import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
+import { getForecastWeather, parseWeatherData } from "../util/weatherApi";
 function App() {
   const weatherTemp = -200;
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
@@ -12,7 +13,6 @@ function App() {
   //each card from defaultClothingItems is an object, empty object is how we define our useState()
   //empty object prevents issues like code breaking bc we traverse thru object to find indvdl data values(name, weather, link) so we wanna make sure JS doesnt have any issues by having empty object for defaultClothingItems
   const handleCreateModal = () => {
-
     setActiveModal("create"); //opens the modal
   };
   const handleCloseModal = () => {
@@ -22,7 +22,16 @@ function App() {
     setActiveModal("preview");
     setSelectedCard(card);
   };
-  console.log(selectedCard);
+
+  useEffect(() => {
+    getForecastWeather().then((data) => {
+      console.log(data);
+      parseWeatherData(data);
+    });
+  }, []);
+  //useEffect() is the side Effect that runs after react fucntionalities have finished running
+  //good place to call Api bc app has completely rendered now u have to call api to populate with data
+  //empty skeleton need to populate skeleton with data thats where useEffect us effective
   return (
     <div>
       <Header onCreateModal={handleCreateModal} />
@@ -55,7 +64,9 @@ function App() {
           </div>
         </ModalWithForm>
       )}
-      {activeModal === "preview" && <ItemModal selectedCard={selectedCard} onClose={handleCloseModal}/>}
+      {activeModal === "preview" && (
+        <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+      )}
     </div>
   );
 }

@@ -16,5 +16,60 @@ export const getForecastWeather = () => {
       return Promise.reject(`Error: ${res.status}`);
     }
   });
+  return weatherApi;
 };
+//export is not default because u can add additional fxn to weatherApi 
+export const parseWeatherData = (data)=>{
+console.log(data);
+const main= data.main;
+const temperature = main && main[0].temp;
+console.log(temperature);
+return temperature;
+}
 
+const response = {
+    "coord": {
+        "lon": 10.99,
+        "lat": 44.34
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "clear sky",
+            "icon": "01n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 50.5,
+        "feels_like": 49.1,
+        "temp_min": 42.87,
+        "temp_max": 56.57,
+        "pressure": 1013,
+        "humidity": 82,
+        "sea_level": 1013,
+        "grnd_level": 925
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 7.45,
+        "deg": 191,
+        "gust": 11.1
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1703382943,
+    "sys": {
+        "type": 1,
+        "id": 6812,
+        "country": "IT",
+        "sunrise": 1703400598,
+        "sunset": 1703432442
+    },
+    "timezone": 3600,
+    "id": 3163858,
+    "name": "Zocca",
+    "cod": 200
+}
