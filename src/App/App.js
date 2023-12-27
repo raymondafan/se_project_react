@@ -5,9 +5,8 @@ import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
-import { getForecastWeather, parseWeatherData } from "../util/weatherApi";
+import { getForecastWeather, parseWeatherData, parseLocationData} from "../util/weatherApi";
 function App() {
-  const weatherTemp = -200;
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
   const [selectedCard, setSelectedCard] = useState({});
   //each card from defaultClothingItems is an object, empty object is how we define our useState()
@@ -15,6 +14,7 @@ function App() {
   const [temp, setTemp] = useState(0);
   //bc it is going to be a number, we can use 0 bc value is consistently a number
   //so we wanna initialize temp variable as a number
+  const [loc, setLoc]= useState("");
   const handleCreateModal = () => {
     setActiveModal("create"); //opens the modal
   };
@@ -25,22 +25,27 @@ function App() {
     setActiveModal("preview");
     setSelectedCard(card);
   };
-
+  const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });
+  
   useEffect(() => {
     getForecastWeather().then((data) => {
       console.log(data);
       const temperature = parseWeatherData(data);
       setTemp(temperature);
+      const location= parseLocationData(data);
+setLoc(location)
     });
+
   }, []);
   console.log(temp);
+  console.log(loc);
   //useEffect() is the side Effect that runs after react fucntionalities have finished running
   //good place to call Api bc app has completely rendered now u have to call api to populate with data
   //empty skeleton need to populate skeleton with data thats where useEffect us effective
   return (
     <div>
-      <Header onCreateModal={handleCreateModal} />
-      <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
+      <Header onCreateModal={handleCreateModal} currentDate={currentDate}/>
+      <Main weatherTemp={temp} onSelectCard={handleSelectedCard} weatherLocation={loc}/>
       <Footer />
       {activeModal === "create" && (
         <ModalWithForm onClose={handleCloseModal} title="New Garment">

@@ -1,6 +1,7 @@
 import "./Header.css";
+
 //in header we destructure onCreateModal
-const Header = ({onCreateModal}) => {
+const Header = ({onCreateModal, currentDate, weatherLocation=""}) => {
   console.log("Header");
   return (
     <header className="header">
@@ -8,7 +9,7 @@ const Header = ({onCreateModal}) => {
         <div>
           <img src={require("../images/logo.svg").default} alt="logo" />
         </div>
-        <div>Date</div>
+        <div>{currentDate}, {weatherLocation}</div>
       </div>
       <div className="header__avatar-logo">
         <div>
