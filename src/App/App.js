@@ -12,6 +12,9 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   //each card from defaultClothingItems is an object, empty object is how we define our useState()
   //empty object prevents issues like code breaking bc we traverse thru object to find indvdl data values(name, weather, link) so we wanna make sure JS doesnt have any issues by having empty object for defaultClothingItems
+  const [temp, setTemp] = useState(0);
+  //bc it is going to be a number, we can use 0 bc value is consistently a number
+  //so we wanna initialize temp variable as a number
   const handleCreateModal = () => {
     setActiveModal("create"); //opens the modal
   };
@@ -26,16 +29,18 @@ function App() {
   useEffect(() => {
     getForecastWeather().then((data) => {
       console.log(data);
-      parseWeatherData(data);
+      const temperature = parseWeatherData(data);
+      setTemp(temperature);
     });
   }, []);
+  console.log(temp);
   //useEffect() is the side Effect that runs after react fucntionalities have finished running
   //good place to call Api bc app has completely rendered now u have to call api to populate with data
   //empty skeleton need to populate skeleton with data thats where useEffect us effective
   return (
     <div>
       <Header onCreateModal={handleCreateModal} />
-      <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard} />
+      <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
       <Footer />
       {activeModal === "create" && (
         <ModalWithForm onClose={handleCloseModal} title="New Garment">
