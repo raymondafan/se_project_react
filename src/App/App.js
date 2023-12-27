@@ -50,12 +50,12 @@ function App() {
   //empty skeleton need to populate skeleton with data thats where useEffect us effective
   return (
     <div>
-      <Header onCreateModal={handleCreateModal} currentDate={currentDate}  weatherLocation={loc} />
-      <Main
-        weatherTemp={temp}
-        onSelectCard={handleSelectedCard}
-       
+      <Header
+        onCreateModal={handleCreateModal}
+        currentDate={currentDate}
+        weatherLocation={loc}
       />
+      <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
       <Footer />
       {activeModal === "create" && (
         <ModalWithForm onClose={handleCloseModal} title="New Garment">
