@@ -1,0 +1,38 @@
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .modal__content {
+    background-color: white;
+    max-width: 496px;
+    width: 100%;
+    border-radius: 16px;
+   
+    position: relative;
+
+  }
+  .modal__close{
+  background:transparent url(../images/close.svg);
+  height: 20px;
+  width: 20px;
+  border: none;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  cursor:pointer;
+  
+  }
+  .modal__image{
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+  }
+  .modal__description{
+   padding: 32px;
+  }
