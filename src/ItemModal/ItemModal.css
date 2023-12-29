@@ -18,15 +18,15 @@
     position: relative;
 
   }
-  .modal__close{
-  background:transparent url(../images/close.svg);
-  height: 20px;
-  width: 20px;
-  border: none;
-  position: absolute;
-  right: 24px;
-  top: 24px;
-  cursor:pointer;
+  .modal__close-white{
+    background:transparent url(../images/close.svg);
+    height: 20px;
+    width: 20px;
+    border: none;
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    cursor:pointer;
   
   }
   .modal__image{
@@ -34,5 +34,8 @@
     border-radius: 16px 16px 0 0;
   }
   .modal__description{
-   padding: 32px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }

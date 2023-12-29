@@ -1,0 +1,10 @@
+.modal__close-grey{
+    background:transparent url(../images/greyclose.svg) ;
+    height: 20px;
+    width: 20px;
+    border: none;
+    position: absolute;
+    right: 28px;
+    top: 20px;
+    cursor:pointer;
+}
