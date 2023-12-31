@@ -9,12 +9,11 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
   }
-  .modal__content {
+  .modal__image-container {
     background-color: white;
     max-width: 496px;
     width: 100%;
     border-radius: 16px;
-   
     position: relative;
 
   }

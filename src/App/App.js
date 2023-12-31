@@ -58,27 +58,42 @@ function App() {
       <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
       <Footer />
       {activeModal === "create" && (
-        <ModalWithForm onClose={handleCloseModal} title="New Garment">
-          <label>
+        <ModalWithForm onClose={handleCloseModal} className="modal__title" title="New Garment">
+          <label className="modal__label">
             Name
-            <input type="text" name="name" minLength="1" maxLength="30" />
+            <input
+            className="modal__input"
+              type="text"
+              placeholder="name"
+              name="name"
+              minLength="1"
+              maxLength="30"
+            />
           </label>
-          <label>
+          <label className="modal__label">
             Image
-            <input type="url" name="link" minLength="1" maxLength="30" />
+            <input 
+            className="modal__input"
+              type="url"
+              placeholder="image URL"
+              name="link"
+              minLength="1"
+              maxLength="30"
+            />
           </label>
-          <p>Select the weather type:</p>
-          <div>
+
+          <p className="modal__radio-title">Select the weather type:</p>
+          <div className="modal__radio-input">
             <div>
-              <input type="radio" id="hot" value="hot" />
+              <input className="modal__radio-input-hot" type="radio" id="hot" value="hot" />
               <label>Hot</label>
             </div>
             <div>
-              <input type="radio" id="warm" value="warm" />
+              <input className="modal__radio-input-warm" type="radio" id="warm" value="warm" />
               <label>Warm</label>
             </div>
             <div>
-              <input type="radio" id="cold" value="cold" />
+              <input className="modal__radio-input-cold" type="radio" id="cold" value="cold" />
               <label>Cold</label>
             </div>
           </div>

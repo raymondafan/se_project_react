@@ -4,7 +4,7 @@ const ItemModal = ({ selectedCard, onClose }) => {
 
   return (
     <div className={`modal`}>
-      <div className="modal__content">
+      <div className="modal__image-container">
         <img className="modal__image" src={selectedCard.link} />
         <button
           className="modal__close-white"

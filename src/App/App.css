@@ -19,3 +19,19 @@
   justify-content: center;
   margin-top: 20px;
 }
+.modal__label{
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0 0;
+}
+.modal__input{
+width: 100%;
+line-height: 20px;
+border:0;
+border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+padding-top: 8px;
+
+}
+.modal__title{
+  margin: 0;
+}
