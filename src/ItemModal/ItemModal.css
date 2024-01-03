@@ -26,7 +26,11 @@
     right: 24px;
     top: 24px;
     cursor:pointer;
-  
+    opacity: 60%;
+    transition: 0.25s ease-in-out;
+  }
+  .modal__close-white:hover{
+    opacity: 100%;
   }
   .modal__image{
     max-width: 100%;
