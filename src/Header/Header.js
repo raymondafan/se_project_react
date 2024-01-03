@@ -13,7 +13,7 @@ const Header = ({onCreateModal, currentDate, weatherLocation=""}) => {
       </div>
       <div className="header__avatar-logo">
         <div>
-          <button type="text" onClick={onCreateModal}>+ Add Clothes</button>
+          <button className="header__button" type="text" onClick={onCreateModal}>+ Add Clothes</button>
         </div>
         <div>Terrence Tegegne</div>
         <div>
