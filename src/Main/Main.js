@@ -26,7 +26,7 @@ console.log(filteredCards);
 
   return (
     <main className="main">
-      <WeatherCard day={false} type="cloud" weatherTemp={weatherTemp} />
+      <WeatherCard day={true} type="sunny" weatherTemp={weatherTemp} />
       <section className="card_section" id="card-section">
         Today is {weatherTemp}°F / You may want to wear:
         <div className="card_items">
