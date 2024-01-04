@@ -45,6 +45,31 @@ function App() {
   }, []);
   console.log(temp);
   console.log(loc);
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      // console.log(modalRef.current, e.target);
+      if (e.target.classList.contains("modal")) {
+        handleCloseModal();
+      }
+    };
+
+    const handleEscapeKey = (e) => {
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+
+    if (activeModal) {
+      // console.log(modalRef.current, e.target);
+      document.addEventListener("mousedown", handleOutsideClick);
+      document.addEventListener("keydown", handleEscapeKey);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscapeKey);
+    };
+  }, [activeModal]);
   //useEffect() is the side Effect that runs after react fucntionalities have finished running
   //good place to call Api bc app has completely rendered now u have to call api to populate with data
   //empty skeleton need to populate skeleton with data thats where useEffect us effective
