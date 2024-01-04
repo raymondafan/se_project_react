@@ -1,9 +1,11 @@
 .main {
   padding: 0 20px;
-  font-family: 'Cabinet Grotesk';
+  font-family: 'CabinetGrotesk-Bold';
+  font-weight: 700;
 }
 .card_section {
   margin-top: 20px;
+ 
 }
 .card_name {
   text-align: center;
@@ -39,7 +41,6 @@
 }
 .modal__title {
   margin: 0;
-  padding-bottom: 24px;
 }
 .modal__radio-title {
   margin: 0;
