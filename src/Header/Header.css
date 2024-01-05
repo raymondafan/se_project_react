@@ -1,26 +1,25 @@
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 60px;
-    padding: 0 20px;
-  }
-  .header__logo{
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+  padding: 0 20px;
+}
+.header__logo {
   display: flex;
   gap: 20px;
   align-items: center;
-  }
-  
-  .header__avatar-logo{
+}
+
+.header__avatar-logo {
   display: flex;
   gap: 20px;
   align-items: center;
-  
-  }
-  .header__button{
-    padding: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-weight: 700;
-  }
+}
+.header__button {
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}

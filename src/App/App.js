@@ -87,7 +87,7 @@ function App() {
           <label className="modal__label">
             Name
             <input
-            className="modal__input"
+              className="modal__input"
               type="text"
               placeholder="name"
               name="name"
@@ -97,8 +97,8 @@ function App() {
           </label>
           <label className="modal__label">
             Image
-            <input 
-            className="modal__input"
+            <input
+              className="modal__input"
               type="url"
               placeholder="image URL"
               name="link"
@@ -109,15 +109,15 @@ function App() {
 
           <p className="modal__radio-title">Select the weather type:</p>
           <div className="modal__radio-input">
-            <div className="modal__radio-input-hot" >
+            <div className="modal__radio-input-hot">
               <input type="radio" id="hot" value="hot" />
               <label>Hot</label>
             </div>
             <div className="modal__radio-input-warm">
-              <input  type="radio" id="warm" value="warm" />
+              <input type="radio" id="warm" value="warm" />
               <label>Warm</label>
             </div>
-            <div  className="modal__radio-input-cold">
+            <div className="modal__radio-input-cold">
               <input type="radio" id="cold" value="cold" />
               <label>Cold</label>
             </div>

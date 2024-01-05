@@ -1,6 +1,6 @@
-.footer{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 40px 24px;
-    font-weight: 500;
-  }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px 24px;
+  font-weight: 500;
+}

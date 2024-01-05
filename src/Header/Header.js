@@ -1,7 +1,7 @@
 import "./Header.css";
 
 //in header we destructure onCreateModal
-const Header = ({onCreateModal, currentDate, weatherLocation=""}) => {
+const Header = ({ onCreateModal, currentDate, weatherLocation = "" }) => {
   console.log("Header");
   return (
     <header className="header">
@@ -9,15 +9,23 @@ const Header = ({onCreateModal, currentDate, weatherLocation=""}) => {
         <div>
           <img src={require("../images/logo.svg").default} alt="logo" />
         </div>
-        <div>{currentDate}, {weatherLocation}</div>
+        <div>
+          {currentDate}, {weatherLocation}
+        </div>
       </div>
       <div className="header__avatar-logo">
         <div>
-          <button className="header__button" type="text" onClick={onCreateModal}>+ Add Clothes</button>
+          <button
+            className="header__button"
+            type="text"
+            onClick={onCreateModal}
+          >
+            + Add Clothes
+          </button>
         </div>
         <div>Terrence Tegegne</div>
         <div>
-          <img src= {require("../images/avatar.svg").default} alt="logo" />
+          <img src={require("../images/avatar.svg").default} alt="logo" />
         </div>
       </div>
     </header>

@@ -21,3 +21,22 @@
   position: relative;
   padding: 28px 28px 36px;
 }
+.modal__button {
+  background: #000;
+  border-radius: 4px;
+  height: 36px;
+  width: 124px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  opacity: 100%;
+  transition: 0.25s ease-in-out;
+}
+.modal__button:hover {
+  opacity: 80%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.modal__title {
+  margin: 0;
+}
