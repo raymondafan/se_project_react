@@ -17,7 +17,7 @@
   position: relative;
 }
 .modal__close-white {
-  background: transparent url(../images/close.svg);
+  background: transparent url(../../images/close.svg);
   height: 20px;
   width: 20px;
   border: none;

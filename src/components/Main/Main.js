@@ -1,4 +1,4 @@
-import { defaultClothingItems } from "../utils/constants";
+import { defaultClothingItems } from "../../utils/constants";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import { useMemo } from "react";
@@ -27,12 +27,12 @@ console.log(filteredCards);
   return (
     <main className="main">
       <WeatherCard day={true} type="sunny" weatherTemp={weatherTemp} />
-      <section className="card_section" id="card-section">
+      <section className="card__section" id="card-section">
         Today is {weatherTemp}°F / You may want to wear:
         <div className="card_items">
           {filteredCards.map((item) => {
             console.log(item);
-            return <ItemCard item={item} onSelectCard={onSelectCard} />;
+            return <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />;
           })}
         </div>
       </section>

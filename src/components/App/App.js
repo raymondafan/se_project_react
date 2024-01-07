@@ -9,7 +9,7 @@ import {
   getForecastWeather,
   parseWeatherData,
   parseLocationData,
-} from "../utils/weatherApi";
+} from "../../utils/weatherApi";
 function App() {
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
   const [selectedCard, setSelectedCard] = useState({});
