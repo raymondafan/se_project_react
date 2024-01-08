@@ -22,15 +22,14 @@ export const getForecastWeather = () => {
 //parses data (paseWeatherData)
 export const parseWeatherData = (data) => {
   const main = data.main;
-  
+
   const temperature = main && main.temp;
 
   return Math.ceil(temperature);
-  
 };
-export const parseLocationData = (data) =>{
-  const name= data.name;
+export const parseLocationData = (data) => {
+  const name = data.name;
   const location = name;
   return location;
-}
+};
 //after you get the getForecastWeather response look at data you need and make a const of the object u need in order to grab the data needed
