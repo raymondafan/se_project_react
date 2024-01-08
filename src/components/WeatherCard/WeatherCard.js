@@ -3,13 +3,13 @@ import { weatherOptions } from "../../utils/constants";
 
 const WeatherCard = ({ day, type, weatherTemp = "" }) => {
   console.log("weather card");
-  const imageSrc = weatherOptions.filter((i) => {
+  const weatherOption = weatherOptions.find((item) => {
     // console.log(i);
-    return i.day === day && i.type === type;
+    return item.day === day && item.type === type;
   });
   // console.log(imageSrc);
   // console.log(imageSrc[0].url);
-  const imageSrcUrl = imageSrc[0].url || "";
+  const imageSrcUrl = weatherOption.url || "";
   return (
     <section className="weather" id="weather">
       <div className="weather_info">{weatherTemp}°F </div>

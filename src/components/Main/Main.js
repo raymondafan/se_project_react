@@ -12,17 +12,17 @@ function Main({ weatherTemp, onSelectCard }) {
     } else if (weatherTemp <= 65) {
       return "cold";
     } //useMemo() is a value not a fxn, weatherType will always be ready and declared
-    //so we dont have to call it every single time 
+    //so we dont have to call it every single time
     //add dependancy [] which is weatherTemp
-  },[weatherTemp]); 
+  }, [weatherTemp]);
   //if weatherTemp were to change when you didnt refresh, it will update all the data and return the new weatherType
-console.log(weatherType);
-//we want to filter the card prior to the mapping of the card into UI 
-const filteredCards = defaultClothingItems.filter((item)=>{
-  console.log(item);
-  return item.weather.toLowerCase()===weatherType
-}) //compares the item inserted converts anything to lowercases and compares to weathertype which in default is lowercase
-console.log(filteredCards);
+  console.log(weatherType);
+  //we want to filter the card prior to the mapping of the card into UI
+  const filteredCards = defaultClothingItems.filter((item) => {
+    console.log(item);
+    return item.weather.toLowerCase() === weatherType;
+  }); //compares the item inserted converts anything to lowercases and compares to weathertype which in default is lowercase
+  console.log(filteredCards);
 
   return (
     <main className="main">
@@ -32,7 +32,13 @@ console.log(filteredCards);
         <div className="card_items">
           {filteredCards.map((item) => {
             console.log(item);
-            return <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />;
+            return (
+              <ItemCard
+                key={item._id}
+                item={item}
+                onSelectCard={onSelectCard}
+              />
+            );
           })}
         </div>
       </section>

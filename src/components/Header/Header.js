@@ -1,5 +1,6 @@
 import "./Header.css";
-
+import avatarImage from "../../images/avatar.svg";
+import logoImage from "../../images/logo.svg";
 //in header we destructure onCreateModal
 const Header = ({ onCreateModal, currentDate, weatherLocation = "" }) => {
   console.log("Header");
@@ -7,7 +8,7 @@ const Header = ({ onCreateModal, currentDate, weatherLocation = "" }) => {
     <header className="header">
       <div className="header__logo">
         <div>
-          <img src={require("../../images/logo.svg").default} alt="logo" />
+          <img src={logoImage} alt="logo" />
         </div>
         <div>
           {currentDate}, {weatherLocation}
@@ -25,7 +26,7 @@ const Header = ({ onCreateModal, currentDate, weatherLocation = "" }) => {
         </div>
         <div>Terrence Tegegne</div>
         <div>
-          <img src={require("../../images/logo.svg").default} alt="logo" />
+          <img src={avatarImage} alt="logo" />
         </div>
       </div>
     </header>

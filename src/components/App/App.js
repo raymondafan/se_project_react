@@ -35,13 +35,17 @@ function App() {
   });
 
   useEffect(() => {
-    getForecastWeather().then((data) => {
-      console.log(data);
-      const temperature = parseWeatherData(data);
-      setTemp(temperature);
-      const location = parseLocationData(data);
-      setLoc(location);
-    });
+    getForecastWeather()
+      .then((data) => {
+        console.log(data);
+        const temperature = parseWeatherData(data);
+        setTemp(temperature);
+        const location = parseLocationData(data);
+        setLoc(location);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
   console.log(temp);
   console.log(loc);
@@ -83,7 +87,11 @@ function App() {
       <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
       <Footer />
       {activeModal === "create" && (
-        <ModalWithForm onClose={handleCloseModal} title="New Garment">
+        <ModalWithForm
+          onClose={handleCloseModal}
+          title="New Garment"
+          buttonText="Add garment"
+        >
           <label className="modal__label">
             Name
             <input
@@ -110,15 +118,15 @@ function App() {
           <p className="modal__radio-title">Select the weather type:</p>
           <div className="modal__radio-input">
             <div className="modal__radio-input-hot">
-              <input type="radio" id="hot" value="hot" />
+              <input name="radio" type="radio" id="hot" value="hot" />
               <label>Hot</label>
             </div>
             <div className="modal__radio-input-warm">
-              <input type="radio" id="warm" value="warm" />
+              <input name="radio" type="radio" id="warm" value="warm" />
               <label>Warm</label>
             </div>
             <div className="modal__radio-input-cold">
-              <input type="radio" id="cold" value="cold" />
+              <input name="radio" type="radio" id="cold" value="cold" />
               <label>Cold</label>
             </div>
           </div>
