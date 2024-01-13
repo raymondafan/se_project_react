@@ -1,6 +1,7 @@
 import "./Header.css";
 import avatarImage from "../../images/avatar.svg";
 import logoImage from "../../images/logo.svg";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 //in header we destructure onCreateModal
 const Header = ({ onCreateModal, currentDate, weatherLocation = "" }) => {
   console.log("Header");
@@ -14,7 +15,9 @@ const Header = ({ onCreateModal, currentDate, weatherLocation = "" }) => {
           {currentDate}, {weatherLocation}
         </div>
       </div>
+
       <div className="header__avatar-logo">
+        <ToggleSwitch />
         <div>
           <button
             className="header__button"
