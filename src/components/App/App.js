@@ -39,8 +39,8 @@ function App() {
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
-        console.log(data);
         const temperature = parseWeatherData(data);
+        console.log(temperature);
         setTemp(temperature);
         const location = parseLocationData(data);
         setLoc(location);
@@ -49,11 +49,10 @@ function App() {
         console.error(err);
       });
   }, []);
-  console.log(temp);
-  console.log(loc);
+  
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      // console.log(modalRef.current, e.target);
+  
       if (e.target.classList.contains("modal")) {
         handleCloseModal();
       }
@@ -66,7 +65,7 @@ function App() {
     };
 
     if (activeModal) {
-      // console.log(modalRef.current, e.target);
+ 
       document.addEventListener("mousedown", handleOutsideClick);
       document.addEventListener("keydown", handleEscapeKey);
     }
@@ -80,10 +79,12 @@ function App() {
   //good place to call Api bc app has completely rendered now u have to call api to populate with data
   //empty skeleton need to populate skeleton with data thats where useEffect us effective
   const handleToggleSwitchChange = () => {
-    if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
-    if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
+    currentTemperatureUnit === 'F'
+    ? setCurrentTemperatureUnit('C')
+    : setCurrentTemperatureUnit('F');
   };
-  console.log(currentTemperatureUnit);
+  // if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
+  // if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   return (
     <div className="page">
       <CurrentTemperatureUnitContext.Provider
