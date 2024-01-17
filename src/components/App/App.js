@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import Profile from "../Profile/Profile";
 import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
 import {
@@ -99,7 +100,7 @@ function App() {
           <Route exact path="/"> 
             <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
           </Route>
-          <Route path="/profile">Profile</Route>
+          <Route path="/profile"><Profile/></Route>
         </Switch>
 
         <Footer />
