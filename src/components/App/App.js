@@ -11,6 +11,8 @@ import {
   parseLocationData,
 } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+
 function App() {
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
   const [selectedCard, setSelectedCard] = useState({});
@@ -49,10 +51,9 @@ function App() {
         console.error(err);
       });
   }, []);
-  
+
   useEffect(() => {
     const handleOutsideClick = (e) => {
-  
       if (e.target.classList.contains("modal")) {
         handleCloseModal();
       }
@@ -65,7 +66,6 @@ function App() {
     };
 
     if (activeModal) {
- 
       document.addEventListener("mousedown", handleOutsideClick);
       document.addEventListener("keydown", handleEscapeKey);
     }
@@ -79,9 +79,9 @@ function App() {
   //good place to call Api bc app has completely rendered now u have to call api to populate with data
   //empty skeleton need to populate skeleton with data thats where useEffect us effective
   const handleToggleSwitchChange = () => {
-    currentTemperatureUnit === 'F'
-    ? setCurrentTemperatureUnit('C')
-    : setCurrentTemperatureUnit('F');
+    currentTemperatureUnit === "F"
+      ? setCurrentTemperatureUnit("C")
+      : setCurrentTemperatureUnit("F");
   };
   // if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
   // if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
@@ -95,7 +95,13 @@ function App() {
           currentDate={currentDate}
           weatherLocation={loc}
         />
-        <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
+        <Switch>
+          <Route exact path="/"> 
+            <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
+          </Route>
+          <Route path="/profile">Profile</Route>
+        </Switch>
+
         <Footer />
         {activeModal === "create" && (
           <ModalWithForm

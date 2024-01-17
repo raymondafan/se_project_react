@@ -9,17 +9,17 @@ function Main({ weatherTemp, onSelectCard }) {
   console.log(currentTemperatureUnit);
   const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 8598;
   const weatherUnitSwitch =
-    (currentTemperatureUnit === "F") ? temp : (temp * 5) / 9 + 32;
+    currentTemperatureUnit === "F" ? temp : (temp * 5) / 9 + 32;
   // const weatherUnitSwitch =
   //   if (currentTemperatureUnit === "F") {
-     // return temp
+  // return temp
   //} else {
-    //return (temp * 5) / 9 + 32;
+  //return (temp * 5) / 9 + 32;
   //}
   const weatherType = useMemo(() => {
     if (weatherUnitSwitch >= 86) {
       return "hot";
-    } else if (weatherUnitSwitch >= 66 && weatherUnitSwitch<= 85) {
+    } else if (weatherUnitSwitch >= 66 && weatherUnitSwitch <= 85) {
       return "warm";
     } else if (weatherUnitSwitch <= 65) {
       return "cold";
@@ -37,7 +37,12 @@ function Main({ weatherTemp, onSelectCard }) {
 
   return (
     <main className="main">
-      <WeatherCard day={true} type="sunny" weatherTemp={temp} weatherUnitSwitch={currentTemperatureUnit}/>
+      <WeatherCard
+        day={true}
+        type="sunny"
+        weatherTemp={temp}
+        weatherUnitSwitch={currentTemperatureUnit}
+      />
       <section className="card__section" id="card-section">
         Today is {temp}°{currentTemperatureUnit} / You may want to wear:
         <div className="card_items">
