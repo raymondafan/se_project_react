@@ -30,9 +30,11 @@ const Header = ({ onCreateModal, currentDate, weatherLocation = "" }) => {
             + Add Clothes
           </button>
         </div>
-        
-        <Link className="header__name" to="/profile">Name</Link>
-        
+
+        <Link className="header__name" to="/profile">
+          Name
+        </Link>
+
         <div>
           <img src={avatarImage} alt="logo" />
         </div>
