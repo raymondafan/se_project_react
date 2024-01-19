@@ -24,6 +24,7 @@ function App() {
   //bc it is going to be a number, we can use 0 bc value is consistently a number
   //so we wanna initialize temp variable as a number
   const [loc, setLoc] = useState("");
+  const[clothingItems, setClothingItems]=useState({});
   const handleCreateModal = () => {
     setActiveModal("create"); //opens the modal
   };
@@ -33,6 +34,9 @@ function App() {
   const handleSelectedCard = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
+  };
+  const handleAddItemSubmit= (item)=>{
+    setClothingItems([item, ...clothingItems]);
   };
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
@@ -112,7 +116,7 @@ function App() {
         </Switch>
 
         <Footer />
-        {activeModal === "create" && <AddItemModal handleCloseModal={handleCloseModal} isOpen={activeModal==="create"} onAddItem={onAddItem}/>}
+        {activeModal === "create" && <AddItemModal handleCloseModal={handleCloseModal} isOpen={activeModal==="create"} onAddItem={onAddItem} handleAddItemSubmit={handleAddItemSubmit}/>}
         {activeModal === "preview" && (
           <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
         )}

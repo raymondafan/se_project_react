@@ -17,7 +17,9 @@ export const getForecastWeather = () => {
   });
   return weatherApi;
 };
-
+const getAddItem = ()=>{
+const itemApi = fetch()
+}
 //export is not default because u can add additional fxn to weatherApi
 //parses data (paseWeatherData)
 export const parseWeatherData = (data) => {
