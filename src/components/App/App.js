@@ -24,7 +24,7 @@ function App() {
   //bc it is going to be a number, we can use 0 bc value is consistently a number
   //so we wanna initialize temp variable as a number
   const [loc, setLoc] = useState("");
-  const[clothingItems, setClothingItems]=useState({});
+  const[clothingItems, setClothingItems]=useState([]);
   const handleCreateModal = () => {
     setActiveModal("create"); //opens the modal
   };
@@ -43,6 +43,7 @@ function App() {
     day: "numeric",
   });
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+
 
   const onAddItem =( values)=>{
  
@@ -108,10 +109,10 @@ function App() {
         />
         <Switch>
           <Route exact path="/">
-            <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
+            <Main weatherTemp={temp} onSelectCard={handleSelectedCard} clothingItems={clothingItems}/>
           </Route>
           <Route path="/profile">
-            <Profile />
+            <Profile clothingItems={clothingItems} selectedCard={handleSelectedCard}  onCreateModal={handleCreateModal}/>
           </Route>
         </Switch>
 
