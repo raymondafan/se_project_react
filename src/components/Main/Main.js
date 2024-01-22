@@ -4,7 +4,7 @@ import ItemCard from "../ItemCard/ItemCard";
 import { useMemo, useContext } from "react";
 import "./Main.css";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-function Main({ weatherTemp, onSelectCard }) {
+function Main({ weatherTemp, onSelectCard, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   console.log(currentTemperatureUnit);
   const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 8598;
@@ -31,7 +31,7 @@ function Main({ weatherTemp, onSelectCard }) {
   //if weatherTemp were to change when you didnt refresh, it will update all the data and return the new weatherType
 
   //we want to filter the card prior to the mapping of the card into UI
-  const filteredCards = defaultClothingItems.filter((item) => {
+  const filteredCards = clothingItems.filter((item) => {
     return item.weather.toLowerCase() === weatherType;
   }); //compares the item inserted converts anything to lowercases and compares to weathertype which in default is lowercase
 

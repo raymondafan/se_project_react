@@ -14,6 +14,7 @@ import {
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import { defaultClothingItems } from "../../utils/constants";
 
 function App() {
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
@@ -24,7 +25,7 @@ function App() {
   //bc it is going to be a number, we can use 0 bc value is consistently a number
   //so we wanna initialize temp variable as a number
   const [loc, setLoc] = useState("");
-  const[clothingItems, setClothingItems]=useState([]);
+  const[clothingItems, setClothingItems]=useState(defaultClothingItems);
   const handleCreateModal = () => {
     setActiveModal("create"); //opens the modal
   };
