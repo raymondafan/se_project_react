@@ -1,14 +1,20 @@
 import ItemCard from "../ItemCard/ItemCard";
+import "./ClothesSection.css";
 const ClothesSection = ({ clothingItems, onSelectCard, onCreateModal }) => {
   return (
-    <div>
-      <div>Your Items</div>
-      <div>
-        <button className="header__button" type="text" onClick={onCreateModal}>
+    <section className="clothes__section">
+      <div className="clothes__section-wrapper">
+        <p className="clothes__section-title">Your Items</p>
+
+        <button
+          className="clothes__section-button"
+          type="text"
+          onClick={onCreateModal}
+        >
           + Add New
         </button>
       </div>
-      <div className="card_items">
+      <div className="clothes__section-items">
         {clothingItems.map((data) => {
           return (
             <ItemCard
@@ -19,7 +25,7 @@ const ClothesSection = ({ clothingItems, onSelectCard, onCreateModal }) => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 export default ClothesSection;

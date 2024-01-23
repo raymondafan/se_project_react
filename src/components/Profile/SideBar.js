@@ -1,18 +1,13 @@
-
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import avatarImage from "../../images/avatar.svg";
+import "./SideBar.css"
 const SideBar = () => {
+  const username = "Name";
   return (
-     
-    <div className="header__avatar-logo">
-        <div>
-        <img src={avatarImage} alt="logo" />
-      </div>
-      <Link className="header__name" to="/profile">
-        Name
-      </Link>
+    <div className="sideBar">
+      <img src={avatarImage} alt="logo" />
 
-      
+      <div className="sideBar__user">{username}</div>
     </div>
   );
 };

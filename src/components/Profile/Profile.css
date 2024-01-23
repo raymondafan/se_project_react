@@ -1,7 +1,7 @@
-/* .profile{
-   
+.profile{
+   display: flex;
 }
 .profile__sideBar{
 
-
-} */
+margin-right: 117px;
+}

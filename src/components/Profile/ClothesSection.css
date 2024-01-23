@@ -1,0 +1,19 @@
+.clothes__section-button {
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  opacity: 100%;
+  transition: 0.25s ease-in-out;
+}
+.clothes__section-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.clothes__section-wrapper {
+  display: flex;
+  gap: 20px;
+}
