@@ -1,12 +1,11 @@
-.sideBar{
-    display: flex;
-    width: 233px;
-    height: 56px;
-    justify-content: center;
+.sideBar {
+  display: flex;
+  width: 233px;
+  height: 56px;
+  justify-content: center;
 }
-.sideBar__user{
-    display: flex;
-    align-items: center;
-    margin-left: 16px;
-
+.sideBar__user {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
 }

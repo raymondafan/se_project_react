@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import avatarImage from "../../images/avatar.svg";
-import "./SideBar.css"
+import "./SideBar.css";
 const SideBar = () => {
   const username = "Name";
   return (
