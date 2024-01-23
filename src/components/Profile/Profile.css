@@ -1,5 +1,8 @@
 .profile{
    display: flex;
+   padding: 0 20px;
+   font-family: "CabinetGrotesk-Bold";
+   font-weight: 700;
 }
 .profile__sideBar{
 
