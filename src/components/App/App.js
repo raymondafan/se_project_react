@@ -37,6 +37,7 @@ function App() {
     setSelectedCard(card);
   };
   const handleAddItemSubmit = (item) => {
+    console.log(item);
     api.addItem(item)
     .then((newItem)=>{
        setClothingItems([newItem, ...clothingItems]);
@@ -53,9 +54,9 @@ function App() {
   });
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
-  const onAddItem = (values) => {
-    console.log(values);
-  };
+  // const onAddItem = (values) => {
+  //   console.log(values);
+  // };
 
   useEffect(() => {
     getForecastWeather()
@@ -146,7 +147,7 @@ function App() {
           <AddItemModal
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "create"}
-            onAddItem={onAddItem}
+            // onAddItem={onAddItem}
             handleAddItemSubmit={handleAddItemSubmit}
           />
         )}
