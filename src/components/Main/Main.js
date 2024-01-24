@@ -32,7 +32,7 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
 
   //we want to filter the card prior to the mapping of the card into UI
   const filteredCards = clothingItems.filter((item) => {
-    return item.weather.toLowerCase() === weatherType;
+    return item.weather === weatherType;
   }); //compares the item inserted converts anything to lowercases and compares to weathertype which in default is lowercase
 
   return (

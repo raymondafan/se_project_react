@@ -10,8 +10,21 @@ const getItemList = () => {
     },
   }).then(handleServerResponse);
 };
-
+const addItem = ({ name, weather, imageUrl }) => {
+  return fetch(`${baseUrl}/items`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name,
+      weather,
+      imageUrl,
+    }),
+  }).then(handleServerResponse);
+};
 const api = {
   getItemList,
+  addItem,
 };
 export default api;

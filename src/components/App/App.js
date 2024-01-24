@@ -37,7 +37,14 @@ function App() {
     setSelectedCard(card);
   };
   const handleAddItemSubmit = (item) => {
-    setClothingItems([item, ...clothingItems]);
+    api.addItem(item)
+    .then((newItem)=>{
+       setClothingItems([newItem, ...clothingItems]);
+       handleCloseModal()
+    })
+   .catch((err) => {
+        console.error(err);
+      });
   };
 
   const currentDate = new Date().toLocaleString("default", {
@@ -69,6 +76,7 @@ function App() {
       .getItemList()
       .then((items) => {
         setClothingItems(items);
+        handleCloseModal();
       })
       .catch((err) => console.log(err));
   }, []);
