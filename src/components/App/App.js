@@ -15,7 +15,7 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import { defaultClothingItems } from "../../utils/constants";
-
+import api from "../../utils/api";
 function App() {
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
   const [selectedCard, setSelectedCard] = useState({});
@@ -25,7 +25,7 @@ function App() {
   //bc it is going to be a number, we can use 0 bc value is consistently a number
   //so we wanna initialize temp variable as a number
   const [loc, setLoc] = useState("");
-  const[clothingItems, setClothingItems]=useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
   const handleCreateModal = () => {
     setActiveModal("create"); //opens the modal
   };
@@ -36,21 +36,20 @@ function App() {
     setActiveModal("preview");
     setSelectedCard(card);
   };
-  const handleAddItemSubmit= (item)=>{
+  const handleAddItemSubmit = (item) => {
     setClothingItems([item, ...clothingItems]);
   };
+
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
+  const onAddItem = (values) => {
+    console.log(values);
+  };
 
-  const onAddItem =( values)=>{
- 
-  console.log(values);
- 
-}
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
@@ -63,6 +62,15 @@ function App() {
       .catch((err) => {
         console.error(err);
       });
+  }, []);
+
+  useEffect(() => {
+    api
+      .getItemList()
+      .then((items) => {
+        setClothingItems(items);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
@@ -110,15 +118,30 @@ function App() {
         />
         <Switch>
           <Route exact path="/">
-            <Main weatherTemp={temp} onSelectCard={handleSelectedCard} clothingItems={clothingItems}/>
+            <Main
+              weatherTemp={temp}
+              onSelectCard={handleSelectedCard}
+              clothingItems={clothingItems}
+            />
           </Route>
           <Route path="/profile">
-            <Profile clothingItems={clothingItems} selectedCard={handleSelectedCard}  onCreateModal={handleCreateModal}/>
+            <Profile
+              clothingItems={clothingItems}
+              selectedCard={handleSelectedCard}
+              onCreateModal={handleCreateModal}
+            />
           </Route>
         </Switch>
 
         <Footer />
-        {activeModal === "create" && <AddItemModal handleCloseModal={handleCloseModal} isOpen={activeModal==="create"} onAddItem={onAddItem} handleAddItemSubmit={handleAddItemSubmit}/>}
+        {activeModal === "create" && (
+          <AddItemModal
+            handleCloseModal={handleCloseModal}
+            isOpen={activeModal === "create"}
+            onAddItem={onAddItem}
+            handleAddItemSubmit={handleAddItemSubmit}
+          />
+        )}
         {activeModal === "preview" && (
           <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
         )}

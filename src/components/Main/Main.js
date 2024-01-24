@@ -7,7 +7,7 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 function Main({ weatherTemp, onSelectCard, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   console.log(currentTemperatureUnit);
-  const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 8598;
+  const temp = weatherTemp?.temperature?.[currentTemperatureUnit] ;
   const weatherUnitSwitch =
     currentTemperatureUnit === "F" ? temp : (temp * 5) / 9 + 32;
   // const weatherUnitSwitch =
