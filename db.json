@@ -1,22 +1,10 @@
 {
   "items": [
     {
-      "_id": 4,
-      "name": "Dress",
-      "weather": "hot",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Dress.png?etag=1f9cd32a311ab139cab43494883720bf"
-    },
-    {
       "_id": 5,
       "name": "Hoodie",
       "weather": "cold",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Hoodie.png?etag=5f52451d0958ccb1016c78a45603a4e8"
-    },
-    {
-      "_id": 6,
-      "name": "Jacket",
-      "weather": "cold",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Jacket.png?etag=f4bb188deaa25ac84ce2338be2d404ad"
     },
     {
       "_id": 7,
@@ -97,12 +85,6 @@
       "_id": 34
     },
     {
-      "name": "sdfjnsdkj",
-      "weather": "hot",
-      "imageUrl": "https://practicum-content.s3.u",
-      "_id": 35
-    },
-    {
       "name": "Raymond Angelo Afan",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
@@ -124,49 +106,19 @@
       "name": "iugkjb",
       "weather": "cold",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-      "_id": 39
+      "_id": 43
+    },
+    {
+      "name": "dw",
+      "weather": "cold",
+      "imageUrl": "https://www.jacketsjunction.com/wp-content/uploads/2023/11/vwoollo-hoodie.webp",
+      "_id": 47
     },
     {
       "name": "sdf",
       "weather": "cold",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-      "_id": 40
-    },
-    {
-      "name": "hoodie",
-      "weather": "cold",
-      "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fstockx.com%2Fkanye-west-kanye-2020-vision-double-layered-hoodie-purple&psig=AOvVaw09DW38xnOrqVbrUIRY1HGx&ust=1706221440696000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKjmmqmI94MDFQAAAAAdAAAAABAF",
-      "_id": 41
-    },
-    {
-      "name": "Jacques Cousteau 1",
-      "weather": "warm",
-      "imageUrl": "https://i.pinimg.com/1200x/82/70/ee/8270ee23817d02750338218fa21dfa0d.jpg",
-      "_id": 42
-    },
-    {
-      "name": "iugkjb",
-      "weather": "cold",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-      "_id": 43
-    },
-    {
-      "name": "",
-      "weather": "false",
-      "imageUrl": "",
-      "_id": 44
-    },
-    {
-      "name": "",
-      "weather": "false",
-      "imageUrl": "",
-      "_id": 45
-    },
-    {
-      "name": "iugkjb",
-      "weather": "cold",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-      "_id": 46
+      "_id": 48
     }
   ]
 }
