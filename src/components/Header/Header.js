@@ -5,7 +5,7 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 //in header we destructure onCreateModal
 const Header = ({ onCreateModal, currentDate, weatherLocation = "" }) => {
-  console.log("Header");
+  // console.log("Header");
   return (
     <header className="header">
       <div className="header__logo">

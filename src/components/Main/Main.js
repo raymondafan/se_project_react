@@ -6,7 +6,7 @@ import "./Main.css";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 function Main({ weatherTemp, onSelectCard, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  console.log(currentTemperatureUnit);
+  // console.log(currentTemperatureUnit);
   const temp = weatherTemp?.temperature?.[currentTemperatureUnit] ;
   const weatherUnitSwitch =
     currentTemperatureUnit === "F" ? temp : (temp * 5) / 9 + 32;
@@ -47,7 +47,7 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
         Today is {temp}°{currentTemperatureUnit} / You may want to wear:
         <div className="card_items">
           {filteredCards.map((item) => {
-            console.log(item);
+            // console.log(item);
             return (
               <ItemCard
                 key={item._id}

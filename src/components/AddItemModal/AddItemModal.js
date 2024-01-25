@@ -8,7 +8,7 @@ const AddItemModal = ({ handleCloseModal, handleAddItemSubmit, isOpen }) => {
    
   const handleNameChange = (e) => {
     setName(e.target.value);
-    console.log(e.target.value); 
+    // console.log(e.target.value); 
   }; //  will trigger on every single key press
   // onChange of the input, the handleNameChange() function is fired off which
   // passes the event which takes==> (e.target.value)
@@ -16,11 +16,11 @@ const AddItemModal = ({ handleCloseModal, handleAddItemSubmit, isOpen }) => {
   //  which then updates name then updates the value
   const handleUrlChange = (e) => {
     setUrl(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }; 
   const handleWeather = (e) => {
     setWeather(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }; 
  
 

@@ -26,6 +26,7 @@ function App() {
   //so we wanna initialize temp variable as a number
   const [loc, setLoc] = useState("");
   const [clothingItems, setClothingItems] = useState([]);
+
   const handleCreateModal = () => {
     setActiveModal("create"); //opens the modal
   };
@@ -38,12 +39,23 @@ function App() {
   };
   const handleAddItemSubmit = (item) => {
     console.log(item);
-    api.addItem(item)
-    .then((newItem)=>{
-       setClothingItems([newItem, ...clothingItems]);
-       handleCloseModal()
-    })
-   .catch((err) => {
+    api
+      .addItem(item)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        handleCloseModal();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+  const handleDeleteCard = (card) => {
+    api
+      .removeItem(card.id)
+      .then(() => {
+        setClothingItems((cards) => cards.filter((c) => c.id !== card.id));
+      })
+      .catch((err) => {
         console.error(err);
       });
   };
@@ -152,7 +164,11 @@ function App() {
           />
         )}
         {activeModal === "preview" && (
-          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+          <ItemModal
+            selectedCard={selectedCard}
+            onClose={handleCloseModal}
+            onCardDelete={handleDeleteCard}
+          />
         )}
       </CurrentTemperatureUnitContext.Provider>
     </div>

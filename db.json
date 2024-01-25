@@ -225,6 +225,36 @@
       "weather": "cold",
       "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fstockx.com%2Fkanye-west-kanye-2020-vision-double-layered-hoodie-purple&psig=AOvVaw09DW38xnOrqVbrUIRY1HGx&ust=1706221440696000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKjmmqmI94MDFQAAAAAdAAAAABAF",
       "_id": 41
+    },
+    {
+      "name": "Jacques Cousteau 1",
+      "weather": "warm",
+      "imageUrl": "https://i.pinimg.com/1200x/82/70/ee/8270ee23817d02750338218fa21dfa0d.jpg",
+      "_id": 42
+    },
+    {
+      "name": "iugkjb",
+      "weather": "cold",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+      "_id": 43
+    },
+    {
+      "name": "",
+      "weather": "false",
+      "imageUrl": "",
+      "_id": 44
+    },
+    {
+      "name": "",
+      "weather": "false",
+      "imageUrl": "",
+      "_id": 45
+    },
+    {
+      "name": "iugkjb",
+      "weather": "cold",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+      "_id": 46
     }
   ]
 }

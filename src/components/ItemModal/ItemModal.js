@@ -1,11 +1,11 @@
 import "./ItemModal.css";
-const ItemModal = ({ selectedCard, onClose }) => {
-  console.log("item modal");
+const ItemModal = ({ selectedCard, onClose, onCardDelete }) => {
+  // console.log("item modal");
 
   return (
     <div className={`modal`}>
       <div className="modal__image-container">
-        <img className="modal__image" src={selectedCard.link} />
+        <img className="modal__image" src={selectedCard.imageUrl} />
         <button
           className="modal__close-white"
           type="button"
@@ -14,7 +14,9 @@ const ItemModal = ({ selectedCard, onClose }) => {
         <div className="modal__description">
           <div>{selectedCard.name}</div>
           <div>Weather Type: {selectedCard.weather}</div>
-          <button className="modal__item-delete">Delete Item</button>
+          <button onClick={onCardDelete} className="modal__item-delete">
+            Delete Item
+          </button>
         </div>
       </div>
     </div>
