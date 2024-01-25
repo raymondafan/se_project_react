@@ -3,6 +3,7 @@ import SideBar from "./SideBar";
 import "./Profile.css";
 import ClothesSection from "./ClothesSection";
 const Profile = ({ clothingItems, onSelectCard, onCreateModal }) => {
+  console.log(clothingItems)
   return (
     <div className="profile">
       <div className="profile__sideBar">
@@ -11,7 +12,7 @@ const Profile = ({ clothingItems, onSelectCard, onCreateModal }) => {
       <div className="profile__items">
         <ClothesSection
           clothingItems={clothingItems}
-          selectedCard={onSelectCard}
+          onSelectCard={onSelectCard}
           onCreateModal={onCreateModal}
         />
       </div>

@@ -51,9 +51,11 @@ function App() {
   };
   const handleDeleteCard = (card) => {
     api
-      .removeItem(card.id)
+      .removeItem(card._id)
       .then(() => {
-        setClothingItems((cards) => cards.filter((c) => c.id !== card.id));
+        setClothingItems((items) => items.filter((item) => item._id != card._id));
+        handleCloseModal();
+        
       })
       .catch((err) => {
         console.error(err);
@@ -148,7 +150,7 @@ function App() {
           <Route path="/profile">
             <Profile
               clothingItems={clothingItems}
-              selectedCard={handleSelectedCard}
+              onSelectCard={handleSelectedCard}
               onCreateModal={handleCreateModal}
             />
           </Route>
