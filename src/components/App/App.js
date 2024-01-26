@@ -126,7 +126,7 @@ function App() {
   //good place to call Api bc app has completely rendered now u have to call api to populate with data
   //empty skeleton need to populate skeleton with data thats where useEffect us effective
   const handleToggleSwitchChange = () => {
-    setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F"); 
+    setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
   // if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
   // if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
