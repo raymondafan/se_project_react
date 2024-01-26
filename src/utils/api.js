@@ -25,7 +25,7 @@ const addItem = ({ name, weather, imageUrl }) => {
   }).then(handleServerResponse);
 };
 
-const removeItem = ( id ) => {
+const removeItem = (id) => {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {

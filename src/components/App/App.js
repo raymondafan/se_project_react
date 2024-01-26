@@ -116,8 +116,6 @@ function App() {
         document.addEventListener("keydown", handleEscapeKey);
       };
     }
-
-
   }, [activeModal]);
   //useEffect() is the side Effect that runs after react fucntionalities have finished running
   //good place to call Api bc app has completely rendered now u have to call api to populate with data

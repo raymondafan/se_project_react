@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddItemModal.css";
 const AddItemModal = ({ handleCloseModal, handleAddItemSubmit, isOpen }) => {
@@ -24,8 +24,7 @@ const AddItemModal = ({ handleCloseModal, handleAddItemSubmit, isOpen }) => {
 
   useEffect(() => {
     if (isOpen) {
-      // reset the state values here 
-     
+      // reset the state values here
     }
   }, [isOpen]);
 
