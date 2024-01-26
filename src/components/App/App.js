@@ -111,19 +111,22 @@ function App() {
     };
 
     if (!activeModal) {
-      return () => {
-        document.addEventListener("mousedown", handleOutsideClick);
-        document.addEventListener("keydown", handleEscapeKey);
-      };
+      return;
     }
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("keydown", handleEscapeKey);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscapeKey);
+    };
   }, [activeModal]);
+
   //useEffect() is the side Effect that runs after react fucntionalities have finished running
   //good place to call Api bc app has completely rendered now u have to call api to populate with data
   //empty skeleton need to populate skeleton with data thats where useEffect us effective
   const handleToggleSwitchChange = () => {
-    currentTemperatureUnit === "F"
-      ? setCurrentTemperatureUnit("C")
-      : setCurrentTemperatureUnit("F");
+    setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F"); 
   };
   // if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
   // if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
