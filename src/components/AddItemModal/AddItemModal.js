@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import "./AddItemModal.css";
 const AddItemModal = ({ handleCloseModal, handleAddItemSubmit, isOpen }) => {
   const [name, setName] = useState("");
   const [imageUrl, setUrl] = useState("");
@@ -8,7 +9,7 @@ const AddItemModal = ({ handleCloseModal, handleAddItemSubmit, isOpen }) => {
    
   const handleNameChange = (e) => {
     setName(e.target.value);
-    // console.log(e.target.value); 
+
   }; //  will trigger on every single key press
   // onChange of the input, the handleNameChange() function is fired off which
   // passes the event which takes==> (e.target.value)
