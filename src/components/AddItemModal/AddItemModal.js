@@ -4,7 +4,7 @@ import "./AddItemModal.css";
 const AddItemModal = ({ handleCloseModal, handleAddItemSubmit, isOpen }) => {
   const [name, setName] = useState("");
   const [imageUrl, setUrl] = useState("");
-  const [weather, setWeather] = useState();
+  const [weather, setWeather] = useState("");
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -24,7 +24,9 @@ const AddItemModal = ({ handleCloseModal, handleAddItemSubmit, isOpen }) => {
 
   useEffect(() => {
     if (isOpen) {
-      // reset the state values here
+      setWeather("");
+      setUrl("");
+      setName("");
     }
   }, [isOpen]);
 

@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+
 import Profile from "../Profile/Profile";
 import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
