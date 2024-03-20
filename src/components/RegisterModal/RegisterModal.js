@@ -34,4 +34,40 @@ const handleSubmit = (e) => {
   e.preventDefault();
   handleRegister({ email, password, name, avatar });
 };
-return <ModalWithForm></ModalWithForm>;
+return (
+  <ModalWithForm
+    onSubmit={handleSubmit}
+    onClose={onClose}
+    name="signup"
+    title="Register here"
+    buttonText="Sign Up"
+    isOpen={isOpen}
+  >
+    <label className="modal__label">
+      Name
+      <input
+        className="modal__input"
+        type="text"
+        placeholder="name"
+        name="name"
+        value={name}
+        onChange={handleNameChange}
+        minLength="1"
+        maxLength="30"
+      />
+    </label>
+    <label className="modal__label">
+      Name
+      <input
+        className="modal__input"
+        type="text"
+        placeholder="name"
+        name="name"
+        value={name}
+        onChange={handleNameChange}
+        minLength="1"
+        maxLength="30"
+      />
+    </label>
+  </ModalWithForm>
+);
