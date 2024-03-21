@@ -57,11 +57,13 @@ const RegisterModal = ({ isOpen, onClose, handleRegister }) => {
         Password
         <input
           className="modal__input"
-          type="text"
+          type="password"
           placeholder="Password"
           name="Password"
           value={password}
           onChange={handlePassword}
+          minLength="1"
+          maxLength="30"
         />
       </label>
       <label className="modal__label">
@@ -75,19 +77,7 @@ const RegisterModal = ({ isOpen, onClose, handleRegister }) => {
           onChange={handleName}
         />
       </label>
-      <label className="modal__label">
-        Password
-        <input
-          className="modal__input"
-          type="text"
-          placeholder="Password"
-          name="Password"
-          value={password}
-          onChange={handlePassword}
-          minLength="1"
-          maxLength="30"
-        />
-      </label>
+     
       <label className="modal__label">
         Avatar
         <input

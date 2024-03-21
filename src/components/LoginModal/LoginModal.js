@@ -47,7 +47,7 @@ const LoginModal = ({ isOpen, onClose, handleLogin }) => {
         Password
         <input
           className="modal__input"
-          type="text"
+          type="password"
           placeholder="Password"
           name="Password"
           value={password}

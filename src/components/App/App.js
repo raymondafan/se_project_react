@@ -38,6 +38,12 @@ function App() {
     setActiveModal("preview");
     setSelectedCard(card);
   };
+  const handleRegisterModal = () => {
+    setActiveModal("signup");
+  };
+  const handleLoginModal = () => {
+    setActiveModal("login");
+  };
   const handleAddItemSubmit = (item) => {
     console.log(item);
     api
@@ -137,6 +143,8 @@ function App() {
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <Header
+          handleRegisterModal={handleRegisterModal}
+          handleLoginModal={handleLoginModal}
           onCreateModal={handleCreateModal}
           currentDate={currentDate}
           weatherLocation={loc}
@@ -171,6 +179,18 @@ function App() {
             selectedCard={selectedCard}
             onClose={handleCloseModal}
             onCardDelete={handleDeleteCard}
+          />
+        )}
+        {activeModal === "signup" && (
+          <RegisterModal
+            handleRegisterModal={handleRegisterModal}
+            onClose={handleCloseModal}
+          />
+        )}
+        {activeModal === "login" && (
+          <LoginModal
+            handleLoginModal={handleLoginModal}
+            onClose={handleCloseModal}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
