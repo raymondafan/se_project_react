@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import "./RegisterModal.css";
+
 const RegisterModal = ({ isOpen, onClose, handleRegister }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,21 +38,30 @@ const RegisterModal = ({ isOpen, onClose, handleRegister }) => {
       onSubmit={handleSubmit}
       onClose={onClose}
       name="signup"
-      title="Register here"
-      buttonText="Sign Up"
+      title="Sign up"
+      buttonText="Next"
       isOpen={isOpen}
     >
       <label className="modal__label">
-        Name
+        Email
+        <input
+          className="modal__input"
+          type="email"
+          placeholder="email"
+          name="email"
+          value={email}
+          onChange={handleEmail}
+        />
+      </label>
+      <label className="modal__label">
+        Password
         <input
           className="modal__input"
           type="text"
-          placeholder="name"
-          name="name"
-          value={name}
-          onChange={handleNameChange}
-          minLength="1"
-          maxLength="30"
+          placeholder="Password"
+          name="Password"
+          value={password}
+          onChange={handlePassword}
         />
       </label>
       <label className="modal__label">
@@ -63,11 +72,34 @@ const RegisterModal = ({ isOpen, onClose, handleRegister }) => {
           placeholder="name"
           name="name"
           value={name}
-          onChange={handleNameChange}
+          onChange={handleName}
+        />
+      </label>
+      <label className="modal__label">
+        Password
+        <input
+          className="modal__input"
+          type="text"
+          placeholder="Password"
+          name="Password"
+          value={password}
+          onChange={handlePassword}
           minLength="1"
           maxLength="30"
+        />
+      </label>
+      <label className="modal__label">
+        Avatar
+        <input
+          className="modal__input"
+          type="url"
+          placeholder="Avatar"
+          name="Avatar"
+          value={avatar}
+          onChange={handleAvatar}
         />
       </label>
     </ModalWithForm>
   );
 };
+export default RegisterModal;
