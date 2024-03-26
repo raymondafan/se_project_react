@@ -4,7 +4,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 
 import Profile from "../Profile/Profile";
-import { useEffect, useState } from "react";
+import { useEffect, useState, React } from "react";
 import ItemModal from "../ItemModal/ItemModal";
 import {
   getForecastWeather,
@@ -12,11 +12,16 @@ import {
   parseLocationData,
 } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import api from "../../utils/api";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 function App() {
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
   const [selectedCard, setSelectedCard] = useState({});
@@ -27,6 +32,7 @@ function App() {
   //so we wanna initialize temp variable as a number
   const [loc, setLoc] = useState("");
   const [clothingItems, setClothingItems] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleCreateModal = () => {
     setActiveModal("create"); //opens the modal
@@ -143,25 +149,29 @@ function App() {
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <Header
-          handleRegisterModal={handleRegisterModal}
-          handleLoginModal={handleLoginModal}
+          onRegisterModal={handleRegisterModal}
+          onLoginModal={handleLoginModal}
           onCreateModal={handleCreateModal}
           currentDate={currentDate}
           weatherLocation={loc}
+          isLoggedIn={isLoggedIn}
         />
         <Switch>
+          <Route path="/profile">
+            <ProtectedRoute isLoggedIn={isLoggedIn} path="/profile">
+              <Profile
+                clothingItems={clothingItems}
+                onSelectCard={handleSelectedCard}
+                onCreateModal={handleCreateModal}
+              />
+            </ProtectedRoute>
+          </Route>
+
           <Route exact path="/">
             <Main
               weatherTemp={temp}
               onSelectCard={handleSelectedCard}
               clothingItems={clothingItems}
-            />
-          </Route>
-          <Route path="/profile">
-            <Profile
-              clothingItems={clothingItems}
-              onSelectCard={handleSelectedCard}
-              onCreateModal={handleCreateModal}
             />
           </Route>
         </Switch>

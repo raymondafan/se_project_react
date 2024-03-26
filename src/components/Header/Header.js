@@ -3,13 +3,15 @@ import avatarImage from "../../images/avatar.svg";
 import logoImage from "../../images/logo.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+
 //in header we destructure onCreateModal
 const Header = ({
   onCreateModal,
   currentDate,
   weatherLocation = "",
-  handleRegisterModal,
-  handleLoginModal,
+  onRegisterModal,
+  onLoginModal,
+  isLoggedIn,
 }) => {
   // console.log("Header");
   return (
@@ -36,31 +38,30 @@ const Header = ({
             + Add Clothes
           </button>
         </div>
-        <div>
+
+        {!isLoggedIn ? (
           <button
             className="header__button"
             type="text"
-            onClick={handleRegisterModal}
+            onClick={onRegisterModal}
           >
             Sign Up
           </button>
-        </div>
-        <div>
-          <button
-            className="header__button"
-            type="text"
-            onClick={handleLoginModal}
-          >
+        ) : (
+          <Link className="header__name" to="/profile">
+            Name
+          </Link>
+        )}
+
+        {!isLoggedIn ? (
+          <button className="header__button" type="text" onClick={onLoginModal}>
             Log in
           </button>
-        </div>
-        <Link className="header__name" to="/profile">
-          Name
-        </Link>
-
-        <div>
-          <img src={avatarImage} alt="logo" />
-        </div>
+        ) : (
+          <div>
+            <img src={avatarImage} alt="logo" />
+          </div>
+        )}
       </div>
     </header>
   );

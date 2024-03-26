@@ -22,6 +22,7 @@ const ModalWithForm = ({
           <button className="modal__button" type="submit">
             {buttonText}
           </button>
+         
         </form>
       </div>
     </div>
