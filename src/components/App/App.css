@@ -3,6 +3,12 @@
   flex-direction: column;
   padding: 24px 0 0;
 }
+.modal__bottomlabel{
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0 32px;
+}
+
 .modal__input {
   width: 100%;
   line-height: 20px;

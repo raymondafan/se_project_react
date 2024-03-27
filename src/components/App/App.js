@@ -12,11 +12,7 @@ import {
   parseLocationData,
 } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import {
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom/cjs/react-router-dom.min";
+import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";

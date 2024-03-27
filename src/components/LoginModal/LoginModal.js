@@ -43,7 +43,7 @@ const LoginModal = ({ isOpen, onClose, handleLogin }) => {
           onChange={handleEmail}
         />
       </label>
-      <label className="modal__label">
+      <label className="modal__bottomlabel">
         Password
         <input
           className="modal__input"

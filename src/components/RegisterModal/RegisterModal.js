@@ -78,7 +78,7 @@ const RegisterModal = ({ isOpen, onClose, handleRegister }) => {
         />
       </label>
 
-      <label className="modal__label">
+      <label className="modal__bottomlabel">
         Avatar
         <input
           className="modal__input"
