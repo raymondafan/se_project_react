@@ -11,6 +11,7 @@ const getItemList = () => {
     },
   }).then(handleServerResponse);
 };
+
 const addItem = ({ name, weather, imageUrl }) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
@@ -34,9 +35,11 @@ const removeItem = (id) => {
   }).then(handleServerResponse);
 };
 
+
 const api = {
   getItemList,
   addItem,
   removeItem,
+ 
 };
 export default api;

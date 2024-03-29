@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-
+import auth from "../../utils/auth";
 import Profile from "../Profile/Profile";
 import { useEffect, useState, React } from "react";
 import ItemModal from "../ItemModal/ItemModal";
@@ -71,7 +71,9 @@ function App() {
         console.error(err);
       });
   };
-
+  const handleRegisterModalSubmit = (user) => {
+    auth.signUp(user);
+  };
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -191,12 +193,17 @@ function App() {
           <RegisterModal
             handleRegisterModal={handleRegisterModal}
             onClose={handleCloseModal}
+            activeModal={activeModal}
+            onSecondButtonClick={handleLoginModal}
+            onSubmitButtonClick={handleRegisterModalSubmit}
           />
         )}
         {activeModal === "login" && (
           <LoginModal
             handleLoginModal={handleLoginModal}
             onClose={handleCloseModal}
+            activeModal={activeModal}
+            onSecondButtonClick={handleRegisterModal}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
