@@ -12,7 +12,7 @@ import {
   parseLocationData,
 } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import { Route, Switch, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
@@ -30,6 +30,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+const history= useHistory();
   const handleCreateModal = () => {
     setActiveModal("create"); //opens the modal
   };
@@ -72,7 +73,19 @@ function App() {
       });
   };
   const handleRegisterModalSubmit = (user) => {
-    auth.signUp(user);
+    auth
+      .signUp(user)
+      .then(() => {
+        history.push("/profile")
+        handleCloseModal();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+  const handleLoginModalSubmit = (user) => {
+    auth.signIn(user);
+    handleCloseModal();
   };
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
@@ -204,6 +217,7 @@ function App() {
             onClose={handleCloseModal}
             activeModal={activeModal}
             onSecondButtonClick={handleRegisterModal}
+            onSubmitButtonClick={handleLoginModalSubmit}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
