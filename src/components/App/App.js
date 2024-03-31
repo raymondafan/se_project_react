@@ -12,12 +12,17 @@ import {
   parseLocationData,
 } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { Route, Switch, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  Route,
+  Switch,
+  useHistory,
+} from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import api from "../../utils/api";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import { handleToken } from "../../utils/token";
 function App() {
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
   const [selectedCard, setSelectedCard] = useState({});
@@ -28,9 +33,10 @@ function App() {
   //so we wanna initialize temp variable as a number
   const [loc, setLoc] = useState("");
   const [clothingItems, setClothingItems] = useState([]);
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-const history= useHistory();
+  const history = useHistory();
   const handleCreateModal = () => {
     setActiveModal("create"); //opens the modal
   };
@@ -76,7 +82,8 @@ const history= useHistory();
     auth
       .signUp(user)
       .then(() => {
-        history.push("/profile")
+        setIsLoggedIn(user);
+        history.push("/profile");
         handleCloseModal();
       })
       .catch((err) => {
@@ -84,8 +91,19 @@ const history= useHistory();
       });
   };
   const handleLoginModalSubmit = (user) => {
-    auth.signIn(user);
-    handleCloseModal();
+    auth
+      .signIn(user)
+      .then((data) => {
+        if (data.token) {
+          handleToken(data.token);
+          setIsLoggedIn(user);
+          handleCloseModal();
+          history.push("/profile");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
@@ -96,6 +114,21 @@ const history= useHistory();
   // const onAddItem = (values) => {
   //   console.log(values);
   // };
+  useEffect(() => {
+    const jwt = handleToken;
+    if (!jwt) {
+      return;
+    }
+    auth
+      .getUserInfo(jwt)
+      .then((user) => {
+        setIsLoggedIn(user);
+        history.push("/profile");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   useEffect(() => {
     getForecastWeather()

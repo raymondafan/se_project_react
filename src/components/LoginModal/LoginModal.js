@@ -4,7 +4,6 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const LoginModal = ({
   isOpen,
   onClose,
-  handleLogin,
   activeModal,
   onSecondButtonClick,
   onSubmitButtonClick,
@@ -28,7 +27,7 @@ const LoginModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin({ email, password });
+    onSubmitButtonClick({ email, password });
   };
   return (
     <ModalWithForm
