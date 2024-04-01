@@ -31,10 +31,9 @@ const signIn = ({ email, password }) => {
 };
 const getUserInfo = (token) => {
   return fetch(`${baseUrl}/users/me`, {
-    method: "GET",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${"fake token"}`,
     },
   }).then(handleServerResponse);
 };

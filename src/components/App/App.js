@@ -22,7 +22,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import api from "../../utils/api";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-import { handleToken } from "../../utils/token";
+import { handleToken, setToken} from "../../utils/token";
 function App() {
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
   const [selectedCard, setSelectedCard] = useState({});
@@ -33,7 +33,7 @@ function App() {
   //so we wanna initialize temp variable as a number
   const [loc, setLoc] = useState("");
   const [clothingItems, setClothingItems] = useState([]);
-
+const [userData, setUserData]= useState({email:""})
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const history = useHistory();
@@ -115,14 +115,15 @@ function App() {
   //   console.log(values);
   // };
   useEffect(() => {
-    const jwt = handleToken;
+    const jwt = setToken();
     if (!jwt) {
       return;
     }
     auth
       .getUserInfo(jwt)
-      .then((user) => {
-        setIsLoggedIn(user);
+      .then(({email}) => {
+        setIsLoggedIn(true);
+        setUserData({email})
         history.push("/profile");
       })
       .catch((err) => {
@@ -204,6 +205,7 @@ function App() {
           <Route path="/profile">
             <ProtectedRoute isLoggedIn={isLoggedIn} path="/profile">
               <Profile
+              userData={userData}
                 clothingItems={clothingItems}
                 onSelectCard={handleSelectedCard}
                 onCreateModal={handleCreateModal}
