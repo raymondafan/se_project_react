@@ -14,7 +14,7 @@ const Header = ({
   onLoginModal,
   isLoggedIn,
 }) => {
-  const currentUser= useContext(CurrentUserContext);
+  const currentUser = useContext(CurrentUserContext);
   // console.log("Header");
   return (
     <header className="header">
@@ -61,7 +61,11 @@ const Header = ({
           </button>
         ) : (
           <div>
-            <img className="header__avatar" src={currentUser.avatar} alt="logo" />
+            <img
+              className="header__avatar"
+              src={currentUser.avatar}
+              alt="logo"
+            />
           </div>
         )}
       </div>

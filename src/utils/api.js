@@ -35,11 +35,9 @@ const removeItem = (id) => {
   }).then(handleServerResponse);
 };
 
-
 const api = {
   getItemList,
   addItem,
   removeItem,
- 
 };
 export default api;
