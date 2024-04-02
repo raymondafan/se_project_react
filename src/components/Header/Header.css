@@ -38,3 +38,7 @@
 .header__name:hover {
   opacity: 70%;
 }
+.header__avatar{
+  height: 40px;
+  width: 40px;
+}

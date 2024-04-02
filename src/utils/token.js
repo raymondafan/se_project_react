@@ -1,13 +1,13 @@
 const TOKEN_KEY = "jwt";
 
-export const setToken = (token) => {
-  localStorage.setItem(TOKEN_KEY, token);
+export const getToken = () => {
+  return localStorage.getItem(TOKEN_KEY);
 };
 
-const handleToken = (res) => {
-  if (res.token) {
-    localStorage.setItem(TOKEN_KEY, res.token);
-    return res;
+const handleToken = (token) => {
+  if (token) {
+    localStorage.setItem(TOKEN_KEY, token);
+    return token;
   } else {
     return;
   }

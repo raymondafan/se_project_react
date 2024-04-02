@@ -33,7 +33,7 @@ const getUserInfo = (token) => {
   return fetch(`${baseUrl}/users/me`, {
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${"fake token"}`,
+      authorization: `Bearer ${token}`,
     },
   }).then(handleServerResponse);
 };
