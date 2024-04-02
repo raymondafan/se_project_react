@@ -1,12 +1,15 @@
 import avatarImage from "../../images/avatar.svg";
 import "./SideBar.css";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
 const SideBar = () => {
-  const username = "Name";
+  const currentUser= useContext(CurrentUserContext);
+
   return (
     <div className="sideBar">
-      <img src={avatarImage} alt="logo" />
+      <img src={currentUser.avatar} alt="logo" />
 
-      <div className="sideBar__user">{username}</div>
+      <div className="sideBar__user">{currentUser.name}</div>
     </div>
   );
 };
