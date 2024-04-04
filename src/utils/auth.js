@@ -1,5 +1,4 @@
 import { handleServerResponse } from "./utils";
-import { handleToken } from "./token";
 const baseUrl = "http://localhost:3001";
 const signUp = ({ name, avatar, email, password }) => {
   return fetch(`${baseUrl}/signup`, {
@@ -25,9 +24,7 @@ const signIn = ({ email, password }) => {
       email,
       password,
     }),
-  })
-    .then(handleServerResponse)
-    .then(handleToken);
+  }).then(handleServerResponse);
 };
 const getUserInfo = (token) => {
   return fetch(`${baseUrl}/users/me`, {

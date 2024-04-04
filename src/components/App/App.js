@@ -56,11 +56,11 @@ function App() {
     setActiveModal("login");
   };
   const handleAddItemSubmit = (item) => {
-    debugger;
     console.log(item);
     api
-      .addItem(item)
+      .addItem(item, getToken())
       .then((newItem) => {
+   
         setClothingItems([newItem, ...clothingItems]);
         handleCloseModal();
       })
@@ -70,7 +70,7 @@ function App() {
   };
   const handleDeleteCard = (card) => {
     api
-      .removeItem(card._id)
+      .removeItem(card._id, getToken())
       .then(() => {
         setClothingItems((items) =>
           items.filter((item) => item._id != card._id)
@@ -127,9 +127,9 @@ function App() {
     }
     auth
       .getUserInfo(jwt)
-      .then(({ email, name, avatar }) => {
+      .then(({ email, name, avatar, _id }) => {
         setIsLoggedIn(true);
-        setCurrentUser({ name, avatar });
+        setCurrentUser({ name, avatar, email, _id });
         setUserData({ email });
         history.push("/profile");
       })
