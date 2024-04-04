@@ -240,6 +240,7 @@ function App() {
           )}
           {activeModal === "preview" && (
             <ItemModal
+            currentUser={currentUser}
               selectedCard={selectedCard}
               onClose={handleCloseModal}
               onCardDelete={handleDeleteCard}

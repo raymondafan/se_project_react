@@ -1,10 +1,8 @@
 import "./ItemModal.css";
-import { useContext } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-const ItemModal = ({ selectedCard, onClose, onCardDelete }) => {
+const ItemModal = ({ selectedCard, onClose, onCardDelete,currentUser }) => {
   // console.log("item modal");
-debugger;
-  const currentUser = useContext(CurrentUserContext);
+
+  // const currentUser = useContext(CurrentUserContext);
   // Checking if the current user is the owner of the current clothing item
   const isOwn = selectedCard.owner === currentUser._id;
 console.log(currentUser)
