@@ -60,8 +60,8 @@ function App() {
     api
       .addItem(item, getToken())
       .then((newItem) => {
-   
-        setClothingItems([newItem, ...clothingItems]);
+
+        setClothingItems([newItem.data, ...clothingItems]);
         handleCloseModal();
       })
       .catch((err) => {
@@ -217,6 +217,8 @@ function App() {
                   clothingItems={clothingItems}
                   onSelectCard={handleSelectedCard}
                   onCreateModal={handleCreateModal}
+                  clothingItemsCurrentUser={currentUser}
+                  selectedCard={selectedCard}
                 />
               </ProtectedRoute>
             </Route>

@@ -14,7 +14,7 @@ const getItemList = (token) => {
 };
 
 const addItem = ({ name, weather, imageUrl }, token) => {
-  debugger;
+
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
