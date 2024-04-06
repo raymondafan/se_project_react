@@ -2,20 +2,28 @@ import React from "react";
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 import ClothesSection from "../ClothesSection/ClothesSection";
-const Profile = ({ clothingItems, onSelectCard, onCreateModal, clothingItemsCurrentUser,  selectedCard }) => {
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
+const Profile = ({
+  clothingItems,
+  onSelectCard,
+  onCreateModal,
+  currentUser,
+}) => {
   return (
     <div className="profile">
       <div className="profile__sideBar">
-        <SideBar />
+        <SideBar currentUserSideBar={currentUser} />
+  
+      
+      <EditProfileModal/>
       </div>
+
       <div className="profile__items">
         <ClothesSection
           clothingItems={clothingItems}
           onSelectCard={onSelectCard}
           onCreateModal={onCreateModal}
-          clothingItemsCurrentUser={clothingItemsCurrentUser}
-          selectedCard={selectedCard}
-
+          currentUserClothesSection={currentUser}
         />
       </div>
     </div>

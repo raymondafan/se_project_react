@@ -17,3 +17,9 @@
   display: flex;
   gap: 20px;
 }
+.clothes__section-items_visible{
+display: inline-flex;
+}
+.clothes__section-items_hidden{
+  display: none;
+}

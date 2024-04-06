@@ -60,7 +60,6 @@ function App() {
     api
       .addItem(item, getToken())
       .then((newItem) => {
-
         setClothingItems([newItem.data, ...clothingItems]);
         handleCloseModal();
       })
@@ -217,8 +216,7 @@ function App() {
                   clothingItems={clothingItems}
                   onSelectCard={handleSelectedCard}
                   onCreateModal={handleCreateModal}
-                  clothingItemsCurrentUser={currentUser}
-                  selectedCard={selectedCard}
+                  currentUser={currentUser}
                 />
               </ProtectedRoute>
             </Route>
@@ -242,7 +240,7 @@ function App() {
           )}
           {activeModal === "preview" && (
             <ItemModal
-            currentUser={currentUser}
+              currentUser={currentUser}
               selectedCard={selectedCard}
               onClose={handleCloseModal}
               onCardDelete={handleDeleteCard}

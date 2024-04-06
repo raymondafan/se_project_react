@@ -4,17 +4,17 @@ const ClothesSection = ({
   clothingItems,
   onSelectCard,
   onCreateModal,
-  clothingItemsCurrentUser,
-  selectedCard
+  currentUserClothesSection,
 }) => {
-debugger;
-const selectedClothingItems= clothingItems.map(obj=>obj.owner._id)
+  const ownedItems = clothingItems.map((item) => {
+    return item.owner._id === currentUserClothesSection._id;
+  });
 
-  const isOwn = selectedClothingItems === clothingItemsCurrentUser._id;
-  console.log(clothingItemsCurrentUser);
+ 
+  console.log(currentUserClothesSection);
   // Creating a variable which you'll then set in `className` for the delete button
   const clothingItemsCurrentUserClassName = `clothes__section-items ${
-    isOwn ? "clothes__section-items_visible" : "clothes__section-items_hidden"
+    ownedItems ? "clothes__section-items_visible" : "clothes__section-items_hidden"
   }`;
   return (
     <section className="clothes__section">
