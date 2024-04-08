@@ -13,9 +13,9 @@ const Profile = ({
     <div className="profile">
       <div className="profile__sideBar">
         <SideBar currentUserSideBar={currentUser} />
-  
-      
-      <EditProfileModal/>
+        <div className="sideBar__buttons">
+          <EditProfileModal />
+        </div>
       </div>
 
       <div className="profile__items">

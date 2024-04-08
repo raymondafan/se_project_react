@@ -1,11 +1,13 @@
-
 import "./SideBar.css";
 const SideBar = ({ currentUserSideBar }) => {
   return (
     <div className="sideBar">
-      <img src={currentUserSideBar.avatar} alt="logo" />
+      <img
+        className="sideBar__avatar"
+        src={currentUserSideBar.avatar}
+        alt="logo"
+      />
       <div className="sideBar__user">{currentUserSideBar.name}</div>
-
     </div>
   );
 };

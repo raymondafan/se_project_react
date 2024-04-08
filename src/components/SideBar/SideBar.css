@@ -9,3 +9,13 @@
   align-items: center;
   margin-left: 16px;
 }
+.sideBar__avatar{
+ height: 56px;
+}
+.sideBar__buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
