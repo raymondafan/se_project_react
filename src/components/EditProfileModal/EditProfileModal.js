@@ -1,9 +1,4 @@
 const EditProfileModal = () => {
-  return (
-    <div>
-
-      
-    </div>
-  );
+  return <div></div>;
 };
 export default EditProfileModal;

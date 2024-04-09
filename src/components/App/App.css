@@ -3,7 +3,7 @@
   flex-direction: column;
   padding: 24px 0 0;
 }
-.modal__bottomlabel{
+.modal__bottomlabel {
   display: flex;
   flex-direction: column;
   padding: 24px 0 32px;

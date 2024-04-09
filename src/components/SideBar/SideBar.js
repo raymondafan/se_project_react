@@ -13,11 +13,13 @@ const SideBar = ({ currentUserSideBar }) => {
       <div className="sideBar__buttons">
         <div>
           <button className="sideBar__edit-button" type="text">
-           Change Profile Data
+            Change Profile Data
           </button>
         </div>
         <div>
-          <button className="sideBar__logout-button" type="text">Log Out</button>
+          <button className="sideBar__logout-button" type="text">
+            Log Out
+          </button>
         </div>
       </div>
     </div>

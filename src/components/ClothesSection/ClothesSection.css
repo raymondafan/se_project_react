@@ -9,7 +9,7 @@
   font-size: 20px;
   font-family: "CabinetGrotesk-Bold";
 }
-.clothes__section-button:hover{
+.clothes__section-button:hover {
   opacity: 70%;
 }
 .clothes__section-items {
@@ -19,18 +19,17 @@
   justify-content: center;
 }
 .clothes__section-wrapper {
- 
   display: flex;
-    gap: 20px;
-    margin-bottom: 24px;
+  gap: 20px;
+  margin-bottom: 24px;
 }
-.clothes__section-items_visible{
-display: inline-flex;
+.clothes__section-items_visible {
+  display: inline-flex;
 }
-.clothes__section-items_hidden{
+.clothes__section-items_hidden {
   display: none;
 }
-.clothes__section-title{
+.clothes__section-title {
   font-size: 20px;
   font-family: "CabinetGrotesk-Bold";
   margin: 0;
