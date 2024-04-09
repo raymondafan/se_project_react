@@ -4,6 +4,7 @@
   align-items: center;
   min-height: 60px;
   padding: 0 20px;
+  margin: 32px 0 24px 0;
 }
 .header__logo {
   display: flex;

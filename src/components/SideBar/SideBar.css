@@ -1,6 +1,6 @@
 .sideBar {
   display: flex;
-  flex-wrap: wrap;
+ flex-direction: column;
   min-width: 230px;
 }
 .sideBar__user {
