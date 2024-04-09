@@ -1,21 +1,49 @@
 .sideBar {
   display: flex;
-  width: 233px;
-  height: 56px;
-  justify-content: center;
+  flex-wrap: wrap;
+  min-width: 230px;
 }
 .sideBar__user {
   display: flex;
   align-items: center;
   margin-left: 16px;
+  font-size: 20px;
 }
-.sideBar__avatar{
- height: 56px;
+.sideBar__avatar {
+  height: 56px;
 }
-.sideBar__buttons{
+.sideBar__info {
+  display: flex;
+}
+.sideBar__buttons {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
   margin-top: 24px;
+}
+.sideBar__edit-button {
+  border: none;
+  background: none;
+  font-family: "CabinetGrotesk-Bold";
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 8px;
+  opacity: 100%;
+  transition: 0.25s ease-in-out;
+}
+.sideBar__edit-button:hover {
+  opacity: 70%;
+}
+.sideBar__logout-button {
+  border: none;
+  background: none;
+  font-family: "CabinetGrotesk-Bold";
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  opacity: 100%;
+  transition: 0.25s ease-in-out;
+}
+.sideBar__logout-button:hover {
+  opacity: 70%;
 }

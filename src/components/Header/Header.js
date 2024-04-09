@@ -24,7 +24,7 @@ const Header = ({
             <img src={logoImage} alt="logo" />
           </Link>
         </div>
-        <div>
+        <div className="header__setting">
           {currentDate}, {weatherLocation}
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 import ClothesSection from "../ClothesSection/ClothesSection";
-import EditProfileModal from "../EditProfileModal/EditProfileModal";
+
 const Profile = ({
   clothingItems,
   onSelectCard,
@@ -13,9 +13,6 @@ const Profile = ({
     <div className="profile">
       <div className="profile__sideBar">
         <SideBar currentUserSideBar={currentUser} />
-        <div className="sideBar__buttons">
-          <EditProfileModal />
-        </div>
       </div>
 
       <div className="profile__items">
