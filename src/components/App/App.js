@@ -24,6 +24,7 @@ import api from "../../utils/api";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { handleToken, getToken } from "../../utils/token";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 function App() {
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
   const [selectedCard, setSelectedCard] = useState({});
@@ -37,6 +38,7 @@ function App() {
   const [userData, setUserData] = useState({ email: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null); //initializing currentUser to null (means no user is logged in initially) null= absence of data
+  const [userProfile, setUserProfile] = useState(null)
 
   const history = useHistory();
   const handleCreateModal = () => {
@@ -54,6 +56,10 @@ function App() {
   };
   const handleLoginModal = () => {
     setActiveModal("login");
+  };
+  const handleEditProfileModal = () => {
+    setActiveModal("edit");
+ 
   };
   const handleAddItemSubmit = (item) => {
     console.log(item);
@@ -108,6 +114,9 @@ function App() {
       .catch((err) => {
         console.error(err);
       });
+  };
+  const handleEditProfileModalSubmit = (user) => {
+    auth.updateProfile(user, getToken());
   };
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
@@ -212,6 +221,7 @@ function App() {
             <Route path="/profile">
               <ProtectedRoute isLoggedIn={isLoggedIn} path="/profile">
                 <Profile
+                onEditProfile={handleEditProfileModal}
                   userData={userData}
                   clothingItems={clothingItems}
                   onSelectCard={handleSelectedCard}
@@ -233,7 +243,7 @@ function App() {
           <Footer />
           {activeModal === "create" && (
             <AddItemModal
-              handleCloseModal={handleCloseModal}
+              onClose={handleCloseModal}
               isOpen={activeModal === "create"}
               handleAddItemSubmit={handleAddItemSubmit}
             />
@@ -262,6 +272,14 @@ function App() {
               activeModal={activeModal}
               onSecondButtonClick={handleRegisterModal}
               onSubmitButtonClick={handleLoginModalSubmit}
+            />
+          )}
+          {activeModal === "edit" && (
+            <EditProfileModal
+              onClose={handleCloseModal}
+              activeModal={activeModal}
+              onSaveButtonClick={handleEditProfileModalSubmit}
+              handleEditProfileModal={handleEditProfileModal}
             />
           )}
         </CurrentTemperatureUnitContext.Provider>

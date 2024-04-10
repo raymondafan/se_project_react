@@ -1,5 +1,5 @@
 import "./SideBar.css";
-const SideBar = ({ currentUserSideBar }) => {
+const SideBar = ({ currentUserSideBar, onEditProfile }) => {
   return (
     <div className="sideBar">
       <div className="sideBar__info">
@@ -12,7 +12,11 @@ const SideBar = ({ currentUserSideBar }) => {
       </div>
       <div className="sideBar__buttons">
         <div>
-          <button className="sideBar__edit-button" type="text">
+          <button
+            className="sideBar__edit-button"
+            type="text"
+            onClick={onEditProfile}
+          >
             Change Profile Data
           </button>
         </div>

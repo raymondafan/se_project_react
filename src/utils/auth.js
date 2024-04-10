@@ -34,10 +34,20 @@ const getUserInfo = (token) => {
     },
   }).then(handleServerResponse);
 };
-
+const updateProfile = (token, {name, avatar}) => {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({name, avatar}),
+  }).then(handleServerResponse);
+};
 const auth = {
   signUp,
   signIn,
   getUserInfo,
+  updateProfile
 };
 export default auth;

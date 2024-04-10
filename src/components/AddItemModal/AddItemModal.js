@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddItemModal.css";
-const AddItemModal = ({ handleCloseModal, handleAddItemSubmit, isOpen }) => {
+const AddItemModal = ({ onClose, handleAddItemSubmit, isOpen }) => {
   const [name, setName] = useState("");
   const [imageUrl, setUrl] = useState("");
   const [weather, setWeather] = useState("");
@@ -36,7 +36,7 @@ const AddItemModal = ({ handleCloseModal, handleAddItemSubmit, isOpen }) => {
   };
   return (
     <ModalWithForm
-      onClose={handleCloseModal}
+      onClose={onClose}
       onSubmit={handleSubmit}
       //onSubmit calls function which calls anon fxn
       //which takes onAddItem which passes {name} from AddItemModal

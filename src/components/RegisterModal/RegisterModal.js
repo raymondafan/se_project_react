@@ -24,19 +24,15 @@ const RegisterModal = ({
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
-    console.log(e.target.value);
   };
   const handlePassword = (e) => {
     setPassword(e.target.value);
-    console.log(e.target.value);
   };
   const handleName = (e) => {
     setName(e.target.value);
-    console.log(e.target.value);
   };
   const handleAvatar = (e) => {
     setAvatar(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleSubmit = (e) => {
