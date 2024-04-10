@@ -38,7 +38,7 @@ function App() {
   const [userData, setUserData] = useState({ email: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null); //initializing currentUser to null (means no user is logged in initially) null= absence of data
-  const [userProfile, setUserProfile] = useState(null)
+  const [userProfile, setUserProfile] = useState(null);
 
   const history = useHistory();
   const handleCreateModal = () => {
@@ -59,7 +59,6 @@ function App() {
   };
   const handleEditProfileModal = () => {
     setActiveModal("edit");
- 
   };
   const handleAddItemSubmit = (item) => {
     console.log(item);
@@ -116,7 +115,14 @@ function App() {
       });
   };
   const handleEditProfileModalSubmit = (user) => {
-    auth.updateProfile(user, getToken());
+    auth
+      .updateProfile(getToken(), user)
+      .then(() => {
+        handleCloseModal();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
@@ -221,7 +227,7 @@ function App() {
             <Route path="/profile">
               <ProtectedRoute isLoggedIn={isLoggedIn} path="/profile">
                 <Profile
-                onEditProfile={handleEditProfileModal}
+                  onEditProfile={handleEditProfileModal}
                   userData={userData}
                   clothingItems={clothingItems}
                   onSelectCard={handleSelectedCard}
