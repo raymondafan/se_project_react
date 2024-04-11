@@ -38,7 +38,6 @@ function App() {
   const [userData, setUserData] = useState({ email: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null); //initializing currentUser to null (means no user is logged in initially) null= absence of data
-  const [userProfile, setUserProfile] = useState(null);
 
   const history = useHistory();
   const handleCreateModal = () => {
@@ -117,7 +116,8 @@ function App() {
   const handleEditProfileModalSubmit = (user) => {
     auth
       .updateProfile(getToken(), user)
-      .then(() => {
+      .then((res) => {
+        setCurrentUser(res.data);
         handleCloseModal();
       })
       .catch((err) => {

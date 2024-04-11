@@ -8,7 +8,15 @@ const ItemCard = ({ item, onSelectCard }) => {
           className="card_image"
           onClick={() => onSelectCard(item)}
         />
-        <div className="card_name"> {item.name}</div>
+        <div className="card__info">
+          <div className="card_name"> {item.name}</div>
+          <div>
+            <button
+              className="card__like-button card__like-button_active"
+              type="button"
+            ></button>
+          </div>
+        </div>
       </div>
     </div>
   );
