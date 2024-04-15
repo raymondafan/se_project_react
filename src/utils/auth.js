@@ -26,6 +26,7 @@ const signIn = ({ email, password }) => {
     }),
   }).then(handleServerResponse);
 };
+
 const getUserInfo = (token) => {
   return fetch(`${baseUrl}/users/me`, {
     headers: {
@@ -44,6 +45,7 @@ const updateProfile = (token, {name, avatar}) => {
     body: JSON.stringify({name, avatar}),
   }).then(handleServerResponse);
 };
+
 const auth = {
   signUp,
   signIn,

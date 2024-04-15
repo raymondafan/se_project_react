@@ -1,5 +1,6 @@
 import "./SideBar.css";
-const SideBar = ({ currentUserSideBar, onEditProfile }) => {
+
+const SideBar = ({ currentUserSideBar, onEditProfile, onProfileLogout }) => {
   return (
     <div className="sideBar">
       <div className="sideBar__info">
@@ -21,7 +22,11 @@ const SideBar = ({ currentUserSideBar, onEditProfile }) => {
           </button>
         </div>
         <div>
-          <button className="sideBar__logout-button" type="text">
+          <button
+            className="sideBar__logout-button"
+            type="text"
+            onClick={onProfileLogout}
+          >
             Log Out
           </button>
         </div>

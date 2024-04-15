@@ -5,6 +5,8 @@ const ClothesSection = ({
   onSelectCard,
   onCreateModal,
   currentUserClothesSection,
+  onCardLike,
+  isLoggedIn
 }) => {
   const ownedItems = clothingItems.map((item) => {
     return item.owner._id === currentUserClothesSection._id;
@@ -33,7 +35,13 @@ const ClothesSection = ({
       <div className={clothingItemsCurrentUserClassName}>
         {clothingItems.map((data) => {
           return (
-            <ItemCard key={data._id} item={data} onSelectCard={onSelectCard} />
+            <ItemCard
+              key={data._id}
+              item={data}
+              onSelectCard={onSelectCard}
+              onCardLike={onCardLike}
+              isLoggedIn={isLoggedIn}
+            />
           );
         })}
       </div>

@@ -25,6 +25,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { handleToken, getToken } from "../../utils/token";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
+import { removeToken } from "../../utils/token";
 function App() {
   const [activeModal, setActiveModal] = useState(""); //argument in useState() defines default value of active modal when app() is rendered
   const [selectedCard, setSelectedCard] = useState({});
@@ -37,7 +38,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [userData, setUserData] = useState({ email: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null); //initializing currentUser to null (means no user is logged in initially) null= absence of data
+  const [currentUser, setCurrentUser] = useState(false); //initializing currentUser to null (means no user is logged in initially) null= absence of data
 
   const history = useHistory();
   const handleCreateModal = () => {
@@ -113,6 +114,11 @@ function App() {
         console.error(err);
       });
   };
+  const handleLogOutSubmit = (user) => {
+    removeToken(user);
+    history.push("/");
+    setIsLoggedIn(false);
+  };
   const handleEditProfileModalSubmit = (user) => {
     auth
       .updateProfile(getToken(), user)
@@ -124,6 +130,33 @@ function App() {
         console.error(err);
       });
   };
+
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    // Check if this card is not currently liked
+    return !isLiked
+      ? // if so, send a request to add the user's id to the card's likes array
+        api
+          // the first argument is the card's id
+          .addCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard.data : item))
+            );
+          })
+      : // if not, send a request to remove the user's id from the card's likes array
+        api
+          // the first argument is the card's id
+          .removeCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) => {
+              return cards.map((item) => {
+                return item._id === id ? updatedCard.data : item;
+              });
+            });
+          });
+  };
+
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -233,6 +266,9 @@ function App() {
                   onSelectCard={handleSelectedCard}
                   onCreateModal={handleCreateModal}
                   currentUser={currentUser}
+                  onCardLike={handleCardLike}
+                  isLoggedIn={isLoggedIn}
+                  onProfileLogout={handleLogOutSubmit}
                 />
               </ProtectedRoute>
             </Route>
@@ -242,6 +278,8 @@ function App() {
                 weatherTemp={temp}
                 onSelectCard={handleSelectedCard}
                 clothingItems={clothingItems}
+                onCardLike={handleCardLike}
+                isLoggedIn={isLoggedIn}
               />
             </Route>
           </Switch>

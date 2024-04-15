@@ -8,12 +8,15 @@ const Profile = ({
   onSelectCard,
   onCreateModal,
   currentUser,
-  onEditProfile
+  onEditProfile,
+  onCardLike,
+  isLoggedIn,
+  onProfileLogout
 }) => {
   return (
     <div className="profile">
       <div className="profile__sideBar">
-        <SideBar currentUserSideBar={currentUser}  onEditProfile={onEditProfile}/>
+        <SideBar currentUserSideBar={currentUser}  onEditProfile={onEditProfile} onProfileLogout={onProfileLogout} />
       </div>
 
       <div className="profile__items">
@@ -22,6 +25,8 @@ const Profile = ({
           onSelectCard={onSelectCard}
           onCreateModal={onCreateModal}
           currentUserClothesSection={currentUser}
+          onCardLike={onCardLike}
+          isLoggedIn={isLoggedIn}
         />
       </div>
     </div>

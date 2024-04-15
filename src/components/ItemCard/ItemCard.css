@@ -23,9 +23,21 @@
   border: none;
   padding: 0px;
   cursor: pointer;
+  opacity: 100%;
+  transition: 0.25s ease-in-out;
 }
-/* .card__like-button_active {
-} */
+.card__like-button:hover {
+  opacity: 70%;
+}
+.card__like-button_active {
+  background: transparent url(../../images/likebuttonactive.svg) center
+    no-repeat;
+  opacity: 100%;
+  transition: 0.25s ease-in-out;
+}
+.card__like-button_active:hover {
+  opacity: 70%;
+}
 .card__info {
   display: flex;
   position: absolute;
