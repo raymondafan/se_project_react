@@ -335,6 +335,8 @@ function App() {
           )}
           {activeModal === "edit" && (
             <EditProfileModal
+              isOpen={activeModal === "edit"}
+              currentUser={currentUser}
               onClose={handleCloseModal}
               activeModal={activeModal}
               onSaveButtonClick={handleEditProfileModalSubmit}

@@ -6,17 +6,17 @@ const EditProfileModal = ({
   onClose,
   activeModal,
   onSaveButtonClick,
-  
+  currentUser,
 }) => {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
 
   useEffect(() => {
-    if (isOpen) {
-      setName("");
-      setAvatar("");
+    if (isOpen && currentUser) {
+      setName(currentUser.name || "");
+      setAvatar(currentUser.avatar || "");
     }
-  }, [isOpen]);
+  }, [isOpen, currentUser]);
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -40,7 +40,6 @@ const EditProfileModal = ({
       isOpen={isOpen}
       activeModal={activeModal}
       onSaveButtonClick={onSaveButtonClick}
-   
     >
       <label className="modal__label">
         Name*
