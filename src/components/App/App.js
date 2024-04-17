@@ -118,7 +118,6 @@ function App() {
         }
       })
       .then((userData) => {
-        debugger;
         setCurrentUser(userData);
         setIsLoggedIn(true);
         handleCloseModal();
