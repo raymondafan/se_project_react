@@ -15,6 +15,15 @@ const Header = ({
   isLoggedIn,
 }) => {
   const currentUser = useContext(CurrentUserContext);
+  function authAddClothesClass() {
+    if (currentUser && isLoggedIn) {
+      return "header__add-clothes";
+    } else {
+      return "header__add-clothes_hidden";
+    }
+  }
+
+  console.log(currentUser);
   // console.log("Header");
   return (
     <header className="header">
@@ -33,7 +42,7 @@ const Header = ({
         <ToggleSwitch />
         <div>
           <button
-            className="header__button"
+            className={`header__add-clothes ${authAddClothesClass()}`}
             type="text"
             onClick={onCreateModal}
           >
@@ -61,11 +70,13 @@ const Header = ({
           </button>
         ) : (
           <div>
-            <img
-              className="header__avatar"
-              src={currentUser.avatar}
-              alt="logo"
-            />
+            <Link to="/profile">
+              <img
+                className="header__avatar"
+                src={currentUser.avatar}
+                alt="logo"
+              />
+            </Link>
           </div>
         )}
       </div>

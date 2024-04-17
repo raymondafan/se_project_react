@@ -38,7 +38,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [userData, setUserData] = useState({ email: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState(false); //initializing currentUser to null (means no user is logged in initially) null= absence of data
+  const [currentUser, setCurrentUser] = useState(false);
 
   const history = useHistory();
   const handleCreateModal = () => {
@@ -85,12 +85,22 @@ function App() {
         console.error(err);
       });
   };
+
   const handleRegisterModalSubmit = (user) => {
     auth
       .signUp(user)
       .then(() => {
+        return auth.signIn(user);
+      })
+      .then((data) => {
+        if (data.token) {
+          handleToken(data.token);
+          return auth.getUserInfo(getToken());
+        }
+      })
+      .then((userData) => {
+        setCurrentUser(userData);
         setIsLoggedIn(true);
-
         history.push("/profile");
         handleCloseModal();
       })
@@ -104,17 +114,22 @@ function App() {
       .then((data) => {
         if (data.token) {
           handleToken(data.token);
-
-          setIsLoggedIn(true);
-          handleCloseModal();
-          history.push("/profile");
+          return auth.getUserInfo(getToken());
         }
+      })
+      .then((userData) => {
+        debugger;
+        setCurrentUser(userData);
+        setIsLoggedIn(true);
+        handleCloseModal();
+        history.push("/profile");
       })
       .catch((err) => {
         console.error(err);
       });
   };
   const handleLogOutSubmit = (user) => {
+    setCurrentUser(true);
     removeToken(user);
     history.push("/");
     setIsLoggedIn(false);

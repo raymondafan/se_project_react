@@ -51,3 +51,20 @@
   font-size: 20px;
   font-family: "CabinetGrotesk-Bold";
 }
+.header__add-clothes{
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  opacity: 100%;
+  transition: 0.25s ease-in-out;
+  font-size: 20px;
+  font-family: "CabinetGrotesk-Bold";
+}
+.header__add-clothes:hover{
+  opacity: 70%;
+}
+.header__add-clothes_hidden{
+  display: none;
+}

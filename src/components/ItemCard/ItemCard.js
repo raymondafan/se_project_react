@@ -2,7 +2,6 @@ import "./ItemCard.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext, useEffect, useState } from "react";
 const ItemCard = ({ item, onSelectCard, onCardLike, isLoggedIn }) => {
-
   const [isLiked, setIsLiked] = useState(false);
   const { _id } = useContext(CurrentUserContext);
   console.log(isLiked);
@@ -19,13 +18,20 @@ const ItemCard = ({ item, onSelectCard, onCardLike, isLoggedIn }) => {
     }
     return "";
   }
+  function authLikeButtonClass() {
+    if (item.owner === _id) {
+      return `card__like-button ${getLikeButtonClass()}`;
+    } else {
+      return "card__like-button_hidden";
+    }
+  }
 
   const handleLikeClick = () => {
     onCardLike({ id: item._id, isLiked })
       .then(() => {
         setIsLiked((prev) => !prev);
       })
-      .catch((err) => console.log(err)); // Pass id and isLiked to onCardLike
+      .catch((err) => console.log(err));
   };
   return (
     <div>
@@ -39,7 +45,9 @@ const ItemCard = ({ item, onSelectCard, onCardLike, isLoggedIn }) => {
           <div className="card_name"> {item.name}</div>
           <div>
             <button
-              className={`card__like-button ${getLikeButtonClass()}`}
+              className={`card__like-button ${
+                (getLikeButtonClass(), authLikeButtonClass())
+              }`}
               type="button"
               onClick={handleLikeClick}
             ></button>

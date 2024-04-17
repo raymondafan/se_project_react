@@ -45,3 +45,6 @@
   text-align: center;
   gap: 10px;
 }
+.card__like-button_hidden{
+  display: none;
+}

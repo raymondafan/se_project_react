@@ -41,6 +41,7 @@ const ClothesSection = ({
               onSelectCard={onSelectCard}
               onCardLike={onCardLike}
               isLoggedIn={isLoggedIn}
+              currentUserClothesSection={currentUserClothesSection}
             />
           );
         })}
