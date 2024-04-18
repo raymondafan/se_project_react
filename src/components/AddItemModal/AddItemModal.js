@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddItemModal.css";
-const AddItemModal = ({ onClose, handleAddItemSubmit, isOpen }) => {
+const AddItemModal = ({ onClose, handleAddItemSubmit, isOpen, isLoading }) => {
   const [name, setName] = useState("");
   const [imageUrl, setUrl] = useState("");
   const [weather, setWeather] = useState("");
@@ -43,9 +43,9 @@ const AddItemModal = ({ onClose, handleAddItemSubmit, isOpen }) => {
       //to onAddItem which is gonna populate data in colsole.log
       isOpen={isOpen}
       title="New Garment"
-      buttonText="Add garment"
+      buttonText={isLoading ? "Adding..." : "Add garment"}
     >
-      <label className="modal__label">
+      <label className="modal__label" htmlFor="name">
         Name
         <input
           className="modal__input"
@@ -58,7 +58,7 @@ const AddItemModal = ({ onClose, handleAddItemSubmit, isOpen }) => {
           maxLength="30"
         />
       </label>
-      <label className="modal__label">
+      <label className="modal__label" htmlFor="link">
         Image
         <input
           className="modal__input"
@@ -82,7 +82,7 @@ const AddItemModal = ({ onClose, handleAddItemSubmit, isOpen }) => {
             checked={weather === "hot"}
             onChange={handleWeather}
           />
-          <label>Hot</label>
+          <label htmlFor="hot">Hot</label>
         </div>
         <div className="modal__radio-input-warm">
           <input
@@ -93,7 +93,7 @@ const AddItemModal = ({ onClose, handleAddItemSubmit, isOpen }) => {
             checked={weather === "warm"}
             onChange={handleWeather}
           />
-          <label>Warm</label>
+          <label htmlFor="warm">Warm</label>
         </div>
         <div className="modal__radio-input-cold">
           <input
@@ -104,7 +104,7 @@ const AddItemModal = ({ onClose, handleAddItemSubmit, isOpen }) => {
             checked={weather === "cold"}
             onChange={handleWeather}
           />
-          <label>Cold</label>
+          <label htmlFor="cold">Cold</label>
         </div>
       </div>
     </ModalWithForm>

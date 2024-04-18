@@ -34,24 +34,23 @@ const ItemCard = ({ item, onSelectCard, onCardLike, isLoggedIn }) => {
       .catch((err) => console.log(err));
   };
   return (
-    <div>
-      <div className="card__container">
-        <img
-          src={item.imageUrl}
-          className="card_image"
-          onClick={() => onSelectCard(item)}
-        />
-        <div className="card__info">
-          <div className="card_name"> {item.name}</div>
-          <div>
-            <button
-              className={`card__like-button ${
-                (getLikeButtonClass(), authLikeButtonClass())
-              }`}
-              type="button"
-              onClick={handleLikeClick}
-            ></button>
-          </div>
+    <div className="card__container">
+      <img
+        src={item.imageUrl}
+        alt="cards"
+        className="card_image"
+        onClick={() => onSelectCard(item)}
+      />
+      <div className="card__info">
+        <div className="card_name"> {item.name}</div>
+        <div>
+          <button
+            className={`card__like-button ${
+              (getLikeButtonClass(), authLikeButtonClass())
+            }`}
+            type="button"
+            onClick={handleLikeClick}
+          ></button>
         </div>
       </div>
     </div>

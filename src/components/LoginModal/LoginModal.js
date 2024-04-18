@@ -7,6 +7,8 @@ const LoginModal = ({
   activeModal,
   onSecondButtonClick,
   onSubmitButtonClick,
+  isLoading,
+  secondButtonText,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,11 +37,12 @@ const LoginModal = ({
       onClose={onClose}
       name="login"
       title="Log In"
-      buttonText="Log In"
+      buttonText={isLoading ? "Logging In..." : "Log In"}
       isOpen={isOpen}
       onSubmitButtonClick={onSubmitButtonClick}
       onSecondButtonClick={onSecondButtonClick}
       activeModal={activeModal}
+      secondButtonText={secondButtonText}
     >
       <label className="modal__label">
         Email

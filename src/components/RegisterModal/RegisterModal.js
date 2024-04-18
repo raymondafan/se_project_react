@@ -7,6 +7,8 @@ const RegisterModal = ({
   activeModal,
   onSubmitButtonClick,
   onSecondButtonClick,
+  isLoading,
+  secondButtonText,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,10 +48,11 @@ const RegisterModal = ({
       onClose={onClose}
       name="signup"
       title="Sign up"
-      buttonText="Next"
+      buttonText={isLoading ? "Signing Up..." : "Next"}
       isOpen={isOpen}
       activeModal={activeModal}
       onSecondButtonClick={onSecondButtonClick}
+      secondButtonText={secondButtonText}
     >
       <label className="modal__label">
         Email

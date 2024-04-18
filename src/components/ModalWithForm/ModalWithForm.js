@@ -8,15 +8,9 @@ const ModalWithForm = ({
   onSubmit,
   activeModal,
   onSecondButtonClick,
+  isLoading,
+  secondButtonText,
 }) => {
-  function getSecondButtonText() {
-    if (activeModal === "signup") {
-      return "or Login";
-    }
-    if (activeModal === "login") {
-      return "or Register";
-    }
-  }
   // console.log("ModalWithForm");
   return (
     <div className={`modal modal_type_${name}`}>
@@ -30,7 +24,11 @@ const ModalWithForm = ({
         <form onSubmit={onSubmit}>
           {children}
           <div className="modal__button-container">
-            <button className="modal__button" type="submit">
+            <button
+              className="modal__button"
+              type="submit"
+              disabled={isLoading}
+            >
               {buttonText}
             </button>
             {(activeModal === "signup" || activeModal === "login") && (
@@ -38,8 +36,9 @@ const ModalWithForm = ({
                 type="button"
                 className="modal__button-register"
                 onClick={onSecondButtonClick}
+                disabled={isLoading}
               >
-                {getSecondButtonText()}
+                {secondButtonText()}
               </button>
             )}
           </div>

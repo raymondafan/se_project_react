@@ -1,6 +1,6 @@
 import "./WeatherCard.css";
 import { weatherOptions } from "../../utils/constants";
-import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext"
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 const WeatherCard = ({
   day,
   type,
@@ -20,7 +20,7 @@ const WeatherCard = ({
       <div className="weather_info">
         {weatherTemp}°{weatherUnitSwitch}{" "}
       </div>
-      <img src={imageSrcUrl} className="weather_image" />
+      <img src={imageSrcUrl} className="weather_image" alt="weather" />
     </section>
   );
 };

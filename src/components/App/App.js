@@ -38,7 +38,8 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [userData, setUserData] = useState({ email: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const history = useHistory();
   const handleCreateModal = () => {
@@ -60,8 +61,17 @@ function App() {
   const handleEditProfileModal = () => {
     setActiveModal("edit");
   };
+  const secondButtonText = () => {
+    if (activeModal === "signup") {
+      return "or Login";
+    }
+    if (activeModal === "login") {
+      return "or Register";
+    }
+  };
+
   const handleAddItemSubmit = (item) => {
-    console.log(item);
+    setIsLoading(true);
     api
       .addItem(item, getToken())
       .then((newItem) => {
@@ -70,7 +80,8 @@ function App() {
       })
       .catch((err) => {
         console.error(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
   const handleDeleteCard = (card) => {
     api
@@ -87,6 +98,7 @@ function App() {
   };
 
   const handleRegisterModalSubmit = (user) => {
+    setIsLoading(true);
     auth
       .signUp(user)
       .then(() => {
@@ -106,9 +118,11 @@ function App() {
       })
       .catch((err) => {
         console.error(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
   const handleLoginModalSubmit = (user) => {
+    setIsLoading(true);
     auth
       .signIn(user)
       .then((data) => {
@@ -125,7 +139,8 @@ function App() {
       })
       .catch((err) => {
         console.error(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
   const handleLogOutSubmit = (user) => {
     setCurrentUser(true);
@@ -134,6 +149,7 @@ function App() {
     setIsLoggedIn(false);
   };
   const handleEditProfileModalSubmit = (user) => {
+    setIsLoading(true);
     auth
       .updateProfile(getToken(), user)
       .then((res) => {
@@ -142,7 +158,8 @@ function App() {
       })
       .catch((err) => {
         console.error(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const handleCardLike = ({ id, isLiked }) => {
@@ -158,6 +175,9 @@ function App() {
               cards.map((item) => (item._id === id ? updatedCard.data : item))
             );
           })
+          .catch((err) => {
+            console.error(err);
+          })
       : // if not, send a request to remove the user's id from the card's likes array
         api
           // the first argument is the card's id
@@ -168,6 +188,9 @@ function App() {
                 return item._id === id ? updatedCard.data : item;
               });
             });
+          })
+          .catch((err) => {
+            console.error(err);
           });
   };
 
@@ -271,21 +294,19 @@ function App() {
             isLoggedIn={isLoggedIn}
           />
           <Switch>
-            <Route path="/profile">
-              <ProtectedRoute isLoggedIn={isLoggedIn} path="/profile">
-                <Profile
-                  onEditProfile={handleEditProfileModal}
-                  userData={userData}
-                  clothingItems={clothingItems}
-                  onSelectCard={handleSelectedCard}
-                  onCreateModal={handleCreateModal}
-                  currentUser={currentUser}
-                  onCardLike={handleCardLike}
-                  isLoggedIn={isLoggedIn}
-                  onProfileLogout={handleLogOutSubmit}
-                />
-              </ProtectedRoute>
-            </Route>
+            <ProtectedRoute isLoggedIn={isLoggedIn} path="/profile">
+              <Profile
+                onEditProfile={handleEditProfileModal}
+                userData={userData}
+                clothingItems={clothingItems}
+                onSelectCard={handleSelectedCard}
+                onCreateModal={handleCreateModal}
+                onCardLike={handleCardLike}
+                isLoggedIn={isLoggedIn}
+                onProfileLogout={handleLogOutSubmit}
+                buttonText={isLoading ? "Saving..." : ""}
+              />
+            </ProtectedRoute>
 
             <Route exact path="/">
               <Main
@@ -304,11 +325,11 @@ function App() {
               onClose={handleCloseModal}
               isOpen={activeModal === "create"}
               handleAddItemSubmit={handleAddItemSubmit}
+              isLoading={isLoading}
             />
           )}
           {activeModal === "preview" && (
             <ItemModal
-              currentUser={currentUser}
               selectedCard={selectedCard}
               onClose={handleCloseModal}
               onCardDelete={handleDeleteCard}
@@ -321,6 +342,8 @@ function App() {
               activeModal={activeModal}
               onSecondButtonClick={handleLoginModal}
               onSubmitButtonClick={handleRegisterModalSubmit}
+              isLoading={isLoading}
+              secondButtonText={secondButtonText}
             />
           )}
           {activeModal === "login" && (
@@ -330,16 +353,18 @@ function App() {
               activeModal={activeModal}
               onSecondButtonClick={handleRegisterModal}
               onSubmitButtonClick={handleLoginModalSubmit}
+              isLoading={isLoading}
+              secondButtonText={secondButtonText}
             />
           )}
           {activeModal === "edit" && (
             <EditProfileModal
               isOpen={activeModal === "edit"}
-              currentUser={currentUser}
               onClose={handleCloseModal}
               activeModal={activeModal}
               onSaveButtonClick={handleEditProfileModalSubmit}
               handleEditProfileModal={handleEditProfileModal}
+              isLoading={isLoading}
             />
           )}
         </CurrentTemperatureUnitContext.Provider>
