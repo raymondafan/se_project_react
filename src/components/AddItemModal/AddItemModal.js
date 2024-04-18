@@ -74,36 +74,42 @@ const AddItemModal = ({ onClose, handleAddItemSubmit, isOpen, isLoading }) => {
       <p className="modal__radio-title">Select the weather type:</p>
       <div className="modal__radio-input">
         <div className="modal__radio-input-hot">
-          <input
-            name="radio"
-            type="radio"
-            id="hot"
-            value="hot"
-            checked={weather === "hot"}
-            onChange={handleWeather}
-          />
+          <label htmlFor="hot">
+            <input
+              name="radio"
+              type="radio"
+              id="hot"
+              value="hot"
+              checked={weather === "hot"}
+              onChange={handleWeather}
+            />
+          </label>
           <label htmlFor="hot">Hot</label>
         </div>
         <div className="modal__radio-input-warm">
-          <input
-            name="radio"
-            type="radio"
-            id="warm"
-            value="warm"
-            checked={weather === "warm"}
-            onChange={handleWeather}
-          />
+          <label htmlFor="warm">
+            <input
+              name="radio"
+              type="radio"
+              id="warm"
+              value="warm"
+              checked={weather === "warm"}
+              onChange={handleWeather}
+            />
+          </label>
           <label htmlFor="warm">Warm</label>
         </div>
         <div className="modal__radio-input-cold">
-          <input
-            name="radio"
-            type="radio"
-            id="cold"
-            value="cold"
-            checked={weather === "cold"}
-            onChange={handleWeather}
-          />
+          <label htmlFor="cold">
+            <input
+              name="radio"
+              type="radio"
+              id="cold"
+              value="cold"
+              checked={weather === "cold"}
+              onChange={handleWeather}
+            />
+          </label>
           <label htmlFor="cold">Cold</label>
         </div>
       </div>

@@ -6,7 +6,6 @@ const ModalWithForm = ({
   onClose,
   name,
   onSubmit,
-  activeModal,
   onSecondButtonClick,
   isLoading,
   secondButtonText,
@@ -31,16 +30,15 @@ const ModalWithForm = ({
             >
               {buttonText}
             </button>
-            {(activeModal === "signup" || activeModal === "login") && (
-              <button
-                type="button"
-                className="modal__button-register"
-                onClick={onSecondButtonClick}
-                disabled={isLoading}
-              >
-                {secondButtonText()}
-              </button>
-            )}
+
+            <button
+              type="button"
+              className="modal__button-register"
+              onClick={onSecondButtonClick}
+              disabled={isLoading}
+            >
+              {secondButtonText}
+            </button>
           </div>
         </form>
       </div>

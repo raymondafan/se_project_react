@@ -52,7 +52,7 @@ const RegisterModal = ({
       isOpen={isOpen}
       activeModal={activeModal}
       onSecondButtonClick={onSecondButtonClick}
-      secondButtonText={secondButtonText}
+      secondButtonText={activeModal === "signup" ? "or Login" : "or Register"}
     >
       <label className="modal__label">
         Email

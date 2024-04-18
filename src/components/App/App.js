@@ -61,14 +61,6 @@ function App() {
   const handleEditProfileModal = () => {
     setActiveModal("edit");
   };
-  const secondButtonText = () => {
-    if (activeModal === "signup") {
-      return "or Login";
-    }
-    if (activeModal === "login") {
-      return "or Register";
-    }
-  };
 
   const handleAddItemSubmit = (item) => {
     setIsLoading(true);
@@ -343,7 +335,6 @@ function App() {
               onSecondButtonClick={handleLoginModal}
               onSubmitButtonClick={handleRegisterModalSubmit}
               isLoading={isLoading}
-              secondButtonText={secondButtonText}
             />
           )}
           {activeModal === "login" && (
@@ -354,7 +345,6 @@ function App() {
               onSecondButtonClick={handleRegisterModal}
               onSubmitButtonClick={handleLoginModalSubmit}
               isLoading={isLoading}
-              secondButtonText={secondButtonText}
             />
           )}
           {activeModal === "edit" && (

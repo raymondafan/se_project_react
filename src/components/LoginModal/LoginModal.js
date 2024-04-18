@@ -42,7 +42,7 @@ const LoginModal = ({
       onSubmitButtonClick={onSubmitButtonClick}
       onSecondButtonClick={onSecondButtonClick}
       activeModal={activeModal}
-      secondButtonText={secondButtonText}
+      secondButtonText={activeModal === "signup" ? "or Login" : "or Register"}
     >
       <label className="modal__label">
         Email
