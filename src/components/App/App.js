@@ -296,7 +296,6 @@ function App() {
                 onCardLike={handleCardLike}
                 isLoggedIn={isLoggedIn}
                 onProfileLogout={handleLogOutSubmit}
-                buttonText={isLoading ? "Saving..." : ""}
               />
             </ProtectedRoute>
 

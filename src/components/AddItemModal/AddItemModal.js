@@ -51,6 +51,7 @@ const AddItemModal = ({ onClose, handleAddItemSubmit, isOpen, isLoading }) => {
           className="modal__input"
           type="text"
           placeholder="name"
+          id="name"
           name="name"
           value={name}
           onChange={handleNameChange}
@@ -63,6 +64,7 @@ const AddItemModal = ({ onClose, handleAddItemSubmit, isOpen, isLoading }) => {
         <input
           className="modal__input"
           type="url"
+          id="link"
           placeholder="image URL"
           onChange={handleUrlChange}
           value={imageUrl}
