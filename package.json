@@ -17,8 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && scp -r ./build/* 
-raymondaafan@raymondafanwtwr.strangled.net:/home/raymondaafan/frontend"
+    "deploy": "npm run build && scp -r ./build/* raymondaafan@raymondafanwtwr.strangled.net:/home/raymondaafan/frontend"
   },
   "eslintConfig": {
     "extends": [
