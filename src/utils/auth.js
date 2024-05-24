@@ -1,5 +1,8 @@
 import { handleServerResponse } from "./utils";
-const baseUrl = "http://localhost:3001";
+// const baseUrl = "http://localhost:3001";
+const baseUrl = process.env.production
+  ? "https://api.raymondafanwtwr.strangled.net"
+  : "http://localhost:3001";
 const signUp = ({ name, avatar, email, password }) => {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
@@ -35,14 +38,14 @@ const getUserInfo = (token) => {
     },
   }).then(handleServerResponse);
 };
-const updateProfile = (token, {name, avatar}) => {
+const updateProfile = (token, { name, avatar }) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({name, avatar}),
+    body: JSON.stringify({ name, avatar }),
   }).then(handleServerResponse);
 };
 
@@ -50,6 +53,6 @@ const auth = {
   signUp,
   signIn,
   getUserInfo,
-  updateProfile
+  updateProfile,
 };
 export default auth;
