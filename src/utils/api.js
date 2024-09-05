@@ -1,7 +1,11 @@
 import { handleServerResponse } from "./utils";
-const baseUrl = process.env.NODE_ENV === "production"
-? "https://api.raymondafanwtwr.strangled.net"
-: "http://localhost:3001";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.raymondafanwtwr.strangled.net"
+    : "http://localhost:3001";
+// const baseUrl = process.env.NODE_ENV === "production"
+// ? "https://api.raymondafanwtwr.strangled.net"
+// : "http://localhost:3001";
 
 // const handleServerResponse = (res) => {
 //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
@@ -64,6 +68,6 @@ const api = {
   addItem,
   removeItem,
   addCardLike,
-  removeCardLike
+  removeCardLike,
 };
 export default api;
