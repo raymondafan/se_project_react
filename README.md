@@ -6,6 +6,9 @@ Created a dynamic and responsive React front end using HTML, CSS, and JavaScript
 
 ## Getting Started
 
+**Note**
+The cloud hosting for this project is currently expired, so the live demo link is temporarily unavailable. You can still run the project locally by following the instructions below.
+
 1. Clone the Repositories
    First, clone both the front-end and back-end repositories to your local machine:
 
